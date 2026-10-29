@@ -1,0 +1,7 @@
+{"type":"system","subtype":"init","session_id":"synthetic-claude-session","model":"claude-synthetic"}
+{"type":"assistant","session_id":"synthetic-claude-session","message":{"content":[{"type":"tool_use","id":"read-1","name":"Read","input":{"file_path":"package.json"}}]}}
+{"type":"user","session_id":"synthetic-claude-session","message":{"content":[{"type":"tool_result","tool_use_id":"read-1","content":"{\"scripts\":{\"test\":\"vitest run\"}}"}]}}
+{"type":"assistant","session_id":"synthetic-claude-session","message":{"content":[{"type":"tool_use","id":"bash-1","name":"Bash","input":{"command":"npm test"}}]}}
+{"type":"user","session_id":"synthetic-claude-session","message":{"content":[{"type":"tool_result","tool_use_id":"bash-1","is_error":true,"content":"FAIL: expected 2, received 1\nProcess exited with code 1"}]}}
+{"type":"assistant","session_id":"synthetic-claude-session","message":{"content":[{"type":"text","text":"The test suite failed. This synthetic example does not establish task acceptance."}]}}
+{"type":"result","subtype":"success","session_id":"synthetic-claude-session","is_error":false,"duration_ms":1234,"result":"Test failure reported.","usage":{"input_tokens":100,"cache_creation_input_tokens":20,"cache_read_input_tokens":30,"output_tokens":40}}

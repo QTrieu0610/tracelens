@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "tracelens-v1",
+  "runId": "run-demo-support-subagents-003",
+  "name": "[DEMO] Customer Support Multi-Agent Delegation (Billing & Auth)",
+  "description": "Triage router agent delegating inquiries to specialized Billing and Authentication subagents.",
+  "agentName": "TriageRouter",
+  "model": "claude-3-5-sonnet",
+  "status": "success",
+  "startedAt": "2026-10-20T16:00:00.000Z",
+  "completedAt": "2026-10-20T16:00:06.120Z",
+  "totalDurationMs": 6120,
+  "totalTokens": {
+    "promptTokens": 3200,
+    "completionTokens": 890,
+    "totalTokens": 4090
+  },
+  "tags": ["demo", "support", "multi-agent", "hierarchy"],
+  "metadata": {
+    "customerId": "CUST-4819",
+    "tier": "enterprise"
+  },
+  "steps": [
+    {
+      "stepId": "step-sp-01",
+      "stepIndex": 0,
+      "type": "user_input",
+      "name": "Customer ticket: Locked out after credit card update",
+      "status": "success",
+      "startedAt": "2026-10-20T16:00:00.000Z",
+      "completedAt": "2026-10-20T16:00:00.030Z",
+      "durationMs": 30,
+      "input": "I updated our company credit card on file yesterday, and now my 2FA authenticator is rejecting my login."
+    },
+    {
+      "stepId": "step-sp-02",
+      "stepIndex": 1,
+      "type": "agent_thought",
+      "name": "Triage intent: Dual domain (Billing + Identity)",
+      "status": "success",
+      "startedAt": "2026-10-20T16:00:00.050Z",
+      "completedAt": "2026-10-20T16:00:00.850Z",
+      "durationMs": 800,
+      "thought": "The ticket contains two distinct issues: credit card update verification (Billing) and 2FA lockout (Auth). I will spawn the BillingSpecialist to check payment status, then dispatch AuthSpecialist to verify the 2FA state.",
+      "tokens": {
+        "promptTokens": 540,
+        "completionTokens": 160,
+        "totalTokens": 700
+      }
+    },
+    {
+      "stepId": "step-sp-03",
+      "stepIndex": 2,
+      "parentId": "step-sp-01",
+      "type": "subagent_invocation",
+      "name": "invoke_subagent: BillingSpecialist",
+      "status": "success",
+      "startedAt": "2026-10-20T16:00:00.900Z",
+      "completedAt": "2026-10-20T16:00:02.800Z",
+      "durationMs": 1900,
+      "input": {
+        "subagent": "BillingSpecialist",
+        "action": "verify_payment_method",
+        "customerId": "CUST-4819"
+      },
+      "output": {
+        "cardStatus": "active",
+        "last4": "4242",
+        "pendingInvoices": 0,
+        "notes": "Card update processed cleanly. Account is in good standing."
+      },
+      "tokens": {
+        "promptTokens": 1100,
+        "completionTokens": 280,
+        "totalTokens": 1380
+      }
+    },
+    {
+      "stepId": "step-sp-04",
+      "stepIndex": 3,
+      "parentId": "step-sp-01",
+      "type": "subagent_invocation",
+      "name": "invoke_subagent: AuthSpecialist",
+      "status": "success",
+      "startedAt": "2026-10-20T16:00:02.850Z",
+      "completedAt": "2026-10-20T16:00:05.150Z",
+      "durationMs": 2300,
+      "input": {
+        "subagent": "AuthSpecialist",
+        "action": "inspect_2fa_status",
+        "customerId": "CUST-4819"
+      },
+      "output": {
+        "totpStatus": "clock_skew_detected",
+        "skewSeconds": 142,
+        "remediation": "Reset TOTP drift window and send one-time SMS verification token."
+      },
+      "tokens": {
+        "promptTokens": 980,
+        "completionTokens": 270,
+        "totalTokens": 1250
+      }
+    },
+    {
+      "stepId": "step-sp-05",
+      "stepIndex": 4,
+      "type": "tool_call",
+      "name": "send_sms_verification: CUST-4819",
+      "status": "success",
+      "startedAt": "2026-10-20T16:00:05.200Z",
+      "completedAt": "2026-10-20T16:00:05.700Z",
+      "durationMs": 500,
+      "input": {
+        "destination": "+1 (555) ***-8902",
+        "purpose": "2fa_resync"
+      },
+      "output": {
+        "deliveryStatus": "DELIVERED",
+        "messageId": "SMS-msg-88219"
+      }
+    },
+    {
+      "stepId": "step-sp-06",
+      "stepIndex": 5,
+      "type": "agent_thought",
+      "name": "Formulate resolution email for customer",
+      "status": "success",
+      "startedAt": "2026-10-20T16:00:05.750Z",
+      "completedAt": "2026-10-20T16:00:06.120Z",
+      "durationMs": 370,
+      "thought": "Billing is verified with no issues. The 2FA issue was caused by authenticator clock drift; an SMS token was dispatched to resync their device.",
+      "tokens": {
+        "promptTokens": 580,
+        "completionTokens": 180,
+        "totalTokens": 760
+      }
+    }
+  ]
+}

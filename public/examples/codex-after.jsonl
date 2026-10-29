@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"synthetic-after"}
+{"type":"turn.started"}
+{"type":"item.started","item":{"id":"check","type":"command_execution","command":"npm test","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"check","type":"command_execution","command":"npm test","status":"completed","exit_code":0,"aggregated_output":"Synthetic example: all observed tests passed. This is not independent acceptance evidence."}}
+{"type":"item.completed","item":{"id":"response","type":"agent_message","text":"Synthetic sample only. Fewer tokens were reported; timing and task acceptance remain unknown."}}
+{"type":"turn.completed","usage":{"input_tokens":9000,"cached_input_tokens":6000,"output_tokens":450,"reasoning_output_tokens":80}}

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "tracelens-v1",
+  "runId": "run-demo-code-001",
+  "name": "[DEMO] CodeRefactor & Test Suite Generation",
+  "description": "Autonomous refactor of authentication middleware with Vitest regression testing and subagent code review.",
+  "agentName": "RefactorAgent",
+  "model": "gemini-1.5-pro",
+  "status": "success",
+  "startedAt": "2026-10-20T14:30:00.000Z",
+  "completedAt": "2026-10-20T14:30:08.450Z",
+  "totalDurationMs": 8450,
+  "totalTokens": {
+    "promptTokens": 4120,
+    "completionTokens": 1280,
+    "totalTokens": 5400
+  },
+  "tags": ["demo", "coding", "refactor", "subagent"],
+  "metadata": {
+    "gitBranch": "feature/auth-jwt-refresh",
+    "environment": "local-workspace"
+  },
+  "steps": [
+    {
+      "stepId": "step-01",
+      "stepIndex": 0,
+      "type": "user_input",
+      "name": "User prompt: Refactor authMiddleware to verify JWT refresh tokens",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:00.000Z",
+      "completedAt": "2026-10-20T14:30:00.050Z",
+      "durationMs": 50,
+      "input": "Refactor src/middleware/auth.ts to add rotating refresh token validation and write a unit test."
+    },
+    {
+      "stepId": "step-02",
+      "stepIndex": 1,
+      "type": "agent_thought",
+      "name": "Analyze auth middleware architecture",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:00.100Z",
+      "completedAt": "2026-10-20T14:30:01.300Z",
+      "durationMs": 1200,
+      "thought": "I need to inspect src/middleware/auth.ts first to understand the current header verification logic, then check the token blacklist in redis.",
+      "tokens": {
+        "promptTokens": 850,
+        "completionTokens": 210,
+        "totalTokens": 1060
+      }
+    },
+    {
+      "stepId": "step-03",
+      "stepIndex": 2,
+      "type": "tool_call",
+      "name": "read_file: src/middleware/auth.ts",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:01.350Z",
+      "completedAt": "2026-10-20T14:30:01.550Z",
+      "durationMs": 200,
+      "input": {
+        "Path": "src/middleware/auth.ts",
+        "StartLine": 1,
+        "EndLine": 65
+      },
+      "output": {
+        "bytesRead": 1420,
+        "lines": 65,
+        "contentPreview": "export async function authenticateToken(req, res, next) { const authHeader = req.headers['authorization']; ... }"
+      }
+    },
+    {
+      "stepId": "step-04",
+      "stepIndex": 3,
+      "type": "tool_call",
+      "name": "edit_file: src/middleware/auth.ts",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:01.600Z",
+      "completedAt": "2026-10-20T14:30:03.100Z",
+      "durationMs": 1500,
+      "input": {
+        "Path": "src/middleware/auth.ts",
+        "Target": "jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)",
+        "Replacement": "jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, { clockTolerance: 30 })"
+      },
+      "output": {
+        "success": true,
+        "replacementsMade": 1
+      }
+    },
+    {
+      "stepId": "step-05",
+      "stepIndex": 4,
+      "type": "tool_call",
+      "name": "run_command: npm test tests/auth.test.ts",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:03.150Z",
+      "completedAt": "2026-10-20T14:30:05.450Z",
+      "durationMs": 2300,
+      "input": {
+        "command": "npm test tests/auth.test.ts",
+        "timeoutMs": 10000
+      },
+      "output": {
+        "exitCode": 0,
+        "stdout": "PASS tests/auth.test.ts\n ✓ verify valid token (4ms)\n ✓ reject expired token (3ms)\n ✓ handle token rotation (6ms)\n\nTest Files  1 passed (1)\nTests  3 passed (3)",
+        "stderr": ""
+      }
+    },
+    {
+      "stepId": "step-06",
+      "stepIndex": 5,
+      "parentId": "step-01",
+      "type": "subagent_invocation",
+      "name": "invoke_subagent: SecurityReviewer",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:05.500Z",
+      "completedAt": "2026-10-20T14:30:07.800Z",
+      "durationMs": 2300,
+      "input": {
+        "TypeName": "security-reviewer",
+        "Role": "AppSec Auditor",
+        "Prompt": "Review the clock tolerance change in auth.ts for token replay vulnerabilities."
+      },
+      "output": {
+        "verdict": "APPROVED",
+        "notes": "Clock tolerance of 30s is within safe boundary. Replay attack window mitigated by single-use jti check."
+      },
+      "tokens": {
+        "promptTokens": 1250,
+        "completionTokens": 320,
+        "totalTokens": 1570
+      }
+    },
+    {
+      "stepId": "step-07",
+      "stepIndex": 6,
+      "type": "agent_thought",
+      "name": "Synthesize summary response",
+      "status": "success",
+      "startedAt": "2026-10-20T14:30:07.850Z",
+      "completedAt": "2026-10-20T14:30:08.450Z",
+      "durationMs": 600,
+      "thought": "All 3 unit tests pass and security review subagent approved the diff. Ready to present completed refactor to user.",
+      "tokens": {
+        "promptTokens": 620,
+        "completionTokens": 180,
+        "totalTokens": 800
+      }
+    }
+  ]
+}

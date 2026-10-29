@@ -1,0 +1,25 @@
+name: Import or comparison bug
+description: Report a reproducible problem using synthetic data only
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach raw personal traces, secrets, paths or credentials. A small synthetic reproduction is sufficient.
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: format
+    attributes:
+      label: Source format and CLI version
+      placeholder: Codex exec JSONL, codex-cli version, browser and OS
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic reproduction
+      description: Include a few made-up events or steps to reproduce. Do not paste an actual private log.
+      render: json
+    validations:
+      required: true

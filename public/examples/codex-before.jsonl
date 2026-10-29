@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"synthetic-before"}
+{"type":"turn.started"}
+{"type":"item.started","item":{"id":"check","type":"command_execution","command":"npm test","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"check","type":"command_execution","command":"npm test","status":"failed","exit_code":1,"aggregated_output":"Synthetic example: one discount rounding test failed."}}
+{"type":"item.completed","item":{"id":"response","type":"agent_message","text":"Synthetic sample only. A command failed; task acceptance has not been evaluated."}}
+{"type":"turn.completed","usage":{"input_tokens":12000,"cached_input_tokens":8000,"output_tokens":600,"reasoning_output_tokens":100}}

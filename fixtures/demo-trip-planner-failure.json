@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "tracelens-v1",
+  "runId": "run-demo-travel-fail-002",
+  "name": "[DEMO] Autonomous Travel Booking Workflow (API Timeout & Seat Unavailable)",
+  "description": "Multi-step travel itinerary agent that encounters an airline partner API timeout followed by inventory depletion.",
+  "agentName": "TravelConcierge",
+  "model": "gpt-4o",
+  "status": "failed",
+  "startedAt": "2026-10-20T11:15:00.000Z",
+  "completedAt": "2026-10-20T11:15:16.800Z",
+  "totalDurationMs": 16800,
+  "totalTokens": {
+    "promptTokens": 3890,
+    "completionTokens": 940,
+    "totalTokens": 4830
+  },
+  "tags": ["demo", "travel", "api-failure", "retry"],
+  "metadata": {
+    "travelerProfile": "corporate-gold",
+    "budgetLimitUsd": 2500
+  },
+  "steps": [
+    {
+      "stepId": "step-tr-01",
+      "stepIndex": 0,
+      "type": "user_input",
+      "name": "User request: Book non-stop SFO to JFK flight for tomorrow",
+      "status": "success",
+      "startedAt": "2026-10-20T11:15:00.000Z",
+      "completedAt": "2026-10-20T11:15:00.040Z",
+      "durationMs": 40,
+      "input": "Book flight SFO -> JFK departure tomorrow morning before 10 AM, budget under $900."
+    },
+    {
+      "stepId": "step-tr-02",
+      "stepIndex": 1,
+      "type": "agent_thought",
+      "name": "Formulate search query & filter criteria",
+      "status": "success",
+      "startedAt": "2026-10-20T11:15:00.100Z",
+      "completedAt": "2026-10-20T11:15:01.200Z",
+      "durationMs": 1100,
+      "thought": "I will query GlobalFlightAPI for non-stop flights departing SFO between 06:00 and 10:00 tomorrow.",
+      "tokens": {
+        "promptTokens": 620,
+        "completionTokens": 140,
+        "totalTokens": 760
+      }
+    },
+    {
+      "stepId": "step-tr-03",
+      "stepIndex": 2,
+      "type": "tool_call",
+      "name": "search_flights: SFO -> JFK (06:00-10:00)",
+      "status": "success",
+      "startedAt": "2026-10-20T11:15:01.250Z",
+      "completedAt": "2026-10-20T11:15:03.450Z",
+      "durationMs": 2200,
+      "input": {
+        "origin": "SFO",
+        "destination": "JFK",
+        "date": "2026-10-21",
+        "maxPrice": 900,
+        "nonStopOnly": true
+      },
+      "output": {
+        "candidateCount": 2,
+        "flights": [
+          { "flightNo": "UA412", "departs": "08:15", "price": 640, "availableSeats": 1 },
+          { "flightNo": "DL890", "departs": "09:30", "price": 780, "availableSeats": 4 }
+        ]
+      }
+    },
+    {
+      "stepId": "step-tr-04",
+      "stepIndex": 3,
+      "type": "tool_call",
+      "name": "reserve_flight: UA412 (Attempt 1)",
+      "status": "failed",
+      "startedAt": "2026-10-20T11:15:03.500Z",
+      "completedAt": "2026-10-20T11:15:10.500Z",
+      "durationMs": 7000,
+      "input": {
+        "flightNo": "UA412",
+        "passengerId": "PAX-9941",
+        "class": "economy_plus"
+      },
+      "error": {
+        "code": "GatewayTimeout",
+        "message": "HTTP 504: Partner reservation gateway timed out after 7000ms",
+        "stack": "GatewayTimeout: HTTP 504\n    at FlightClient.reserve (sdk/flights.js:142)\n    at AgentRunner.execute (runner.js:88)"
+      }
+    },
+    {
+      "stepId": "step-tr-05",
+      "stepIndex": 4,
+      "type": "tool_call",
+      "name": "reserve_flight: UA412 (Retry 1)",
+      "status": "failed",
+      "startedAt": "2026-10-20T11:15:10.600Z",
+      "completedAt": "2026-10-20T11:15:15.800Z",
+      "durationMs": 5200,
+      "input": {
+        "flightNo": "UA412",
+        "passengerId": "PAX-9941",
+        "retryCount": 1
+      },
+      "error": {
+        "code": "InventoryConflict",
+        "message": "SeatUnavailableException: Requested seat on UA412 was claimed by another session during timeout recovery",
+        "stack": "SeatUnavailableException: 0 seats remaining for flight UA412"
+      }
+    },
+    {
+      "stepId": "step-tr-06",
+      "stepIndex": 5,
+      "type": "agent_thought",
+      "name": "Handle reservation failure & abort",
+      "status": "failed",
+      "startedAt": "2026-10-20T11:15:15.850Z",
+      "completedAt": "2026-10-20T11:15:16.800Z",
+      "durationMs": 950,
+      "thought": "Primary reservation for UA412 failed due to timeout and concurrent seat exhaustion. I must halt execution, roll back holds, and notify user to approve alternative flight DL890.",
+      "error": {
+        "code": "WorkflowAborted",
+        "message": "Workflow aborted: cannot proceed with booking without user intervention for alternate carrier"
+      },
+      "tokens": {
+        "promptTokens": 1100,
+        "completionTokens": 220,
+        "totalTokens": 1320
+      }
+    }
+  ]
+}

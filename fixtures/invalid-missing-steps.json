@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "tracelens-v1",
+  "runId": "invalid-run-999",
+  "name": "Corrupted Trace File",
+  "agentName": "UnknownAgent",
+  "model": "gpt-4o",
+  "status": "success",
+  "startedAt": "invalid-date-string",
+  "totalDurationMs": -500,
+  "steps": "not-an-array"
+}
