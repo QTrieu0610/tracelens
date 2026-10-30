@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T03:14:55.010Z",
+  "generatedAt": "2026-10-30T07:50:31.357Z",
   "policy": "Product source allowlist; excludes real benchmark logs, workspaces, local credentials and build artifacts",
   "files": [
     {
@@ -36,15 +36,15 @@
     },
     {
       "path": "src/components/dashboard/ExecutionTable.tsx",
-      "sha256": "ce86bac595440f940a7922f8afa00cf871a8591d0282f8f75c4883491d489d5c"
+      "sha256": "060128862d9e10a1050af646e6964a7fc8ef72a207bfce3aa978bb53992b224b"
     },
     {
       "path": "src/components/dashboard/LocalCaptures.tsx",
-      "sha256": "7d10c5af22d78da17ecac959b738ebeddec05747da5a55bf0ab6b56ca2dd228b"
+      "sha256": "dd47a4f84cd4b75fda0cdee9e02e7cb27e5d432c10704e21575a7cd56ec866e8"
     },
     {
       "path": "src/components/dashboard/LocalEvaluations.tsx",
-      "sha256": "f300e0edc9d92c59a3ce956352a0de7a4def260e05d19f63d87ccbe08d50c98d"
+      "sha256": "fa8d3c6466257c05d75731b9020e5511b9b3a34577bef6a213fe11d1266d5291"
     },
     {
       "path": "src/components/explorer/StepInspector.tsx",
@@ -332,7 +332,7 @@
     },
     {
       "path": "tests/e2e/storage-recovery.spec.ts",
-      "sha256": "84b59053f074aef322d3c8751a6805bec825678efb0afec8c0a99671b1c4abcf"
+      "sha256": "a76ac99332e6011c15a2cfefc7d2b63042230131f92553fc4027b0ab08978b38"
     },
     {
       "path": "tests/e2e/workflow-and-comparison.spec.ts",
@@ -549,6 +549,18 @@
     {
       "path": "docs/screenshots/product-demo.png",
       "sha256": "876a970459cf0d6fcdd459e997838a3300ca26aa6147d2bbab7af3beccfb68c6"
+    },
+    {
+      "path": "src/lib/localService.ts",
+      "sha256": "56ccaba3bb9a33420e690a890f8861890e0b73f7e0c20313130cd6ad1b4bdc51"
+    },
+    {
+      "path": "tests/e2e/hosted-viewer.spec.ts",
+      "sha256": "645a889771fa59dd3c3582805e76565ab39bd379dad02e7e43a39968fd997d1f"
+    },
+    {
+      "path": "tests/unit/localService.test.ts",
+      "sha256": "3bc763c1bd3d647d5d283dbabb5c095a67f277af89177c20f29a156555964ab9"
     }
   ]
 }

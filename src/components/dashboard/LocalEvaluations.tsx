@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { useTraceStore } from '../../store/traceStore';
 import { parseTraceImport } from '../../lib/importTrace';
 import { computeRunComparison } from '../../lib/analytics';
+import { supportsLocalDiscovery } from '../../lib/localService';
 
 interface Evaluation { id: string; name: string; createdAt: string; synthetic: boolean }
 
 export function LocalEvaluations() {
-  const { importComparison } = useTraceStore();
+  const { importComparison, setImportModalOpen } = useTraceStore();
+  const localDiscovery = supportsLocalDiscovery(window.location.hostname);
   const [evaluations, setEvaluations] = useState<Evaluation[]>([]);
   const [available, setAvailable] = useState(false);
   const [error, setError] = useState('');
@@ -16,6 +18,7 @@ export function LocalEvaluations() {
   const [refresh, setRefresh] = useState(0);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    if (!localDiscovery) { setLoading(false); return; }
     const controller = new AbortController();
     let stopped = false;
     let detected = available;
@@ -36,7 +39,7 @@ export function LocalEvaluations() {
     void fetchResults();
     const timer = window.setInterval(fetchResults, 5000);
     return () => { stopped = true; controller.abort(); window.clearInterval(timer); };
-  }, [refresh]);
+  }, [refresh, localDiscovery]);
 
   const open = async (evaluation: Evaluation) => {
     setOpening(evaluation.id); setError('');
@@ -53,6 +56,14 @@ export function LocalEvaluations() {
     } catch (e) { setError((e as Error).message); }
     finally { setOpening(''); }
   };
+
+  if (!localDiscovery) return <section id="local-evaluations" aria-label="Evaluation files" className="rounded-xl border border-studio-700 bg-studio-900 p-4 space-y-3">
+    <h2 className="text-sm font-semibold text-studio-100">View evaluation results</h2>
+    <p className="text-sm text-studio-300">This hosted viewer displays exported evaluations. Python evaluations run on your computer; this website cannot run Python or discover local files.</p>
+    <button onClick={() => setImportModalOpen(true)} className="rounded border border-studio-600 px-3 py-2 text-xs text-cyan-300 hover:bg-studio-800">Import evaluation JSON</button>
+    <p className="text-xs text-studio-400">Import the baseline and candidate JSON files, then select them in Run Comparison. To explore without setup, choose Try Pydantic Evals comparison above.</p>
+    <details className="text-xs text-studio-400"><summary className="cursor-pointer">Run evaluations on your computer</summary><p className="mt-2">From the source checkout, start the local viewer with <code>npm start</code> and run <code>npm run evals</code> in another terminal. Open Local evaluations in that local viewer. Requires Python 3.11+; the first run installs dependencies.</p></details>
+  </section>;
 
   return <section id="local-evaluations" aria-label="Local evaluations" className="rounded-xl border border-studio-700 bg-studio-900 p-4 space-y-3">
     <div className="flex items-center justify-between gap-3">

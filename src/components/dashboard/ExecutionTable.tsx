@@ -7,6 +7,7 @@ import { formatRunDuration, getRunDuration, getRunStatusLabel, isSyntheticDemo }
 import { parseTraceImport } from '../../lib/importTrace';
 import { LocalCaptures } from './LocalCaptures';
 import { LocalEvaluations } from './LocalEvaluations';
+import { supportsLocalDiscovery } from '../../lib/localService';
 
 export function ExecutionTable() {
   const {
@@ -83,7 +84,7 @@ export function ExecutionTable() {
           <div className="rounded-lg border border-studio-700 p-3 space-y-2"><h3 className="text-sm font-semibold text-studio-100">2. Inspect your logs</h3><p className="text-xs text-studio-400">Open Codex, Claude Code, Gemini CLI, AGY or TraceLens JSON files. Find a failed step and inspect its output.</p>
           <button onClick={() => setImportModalOpen(true)} className="rounded-lg px-3 py-2 bg-cyan-600 text-white text-xs font-semibold hover:bg-cyan-500">Import your logs</button>
           </div>
-          <div className="rounded-lg border border-studio-700 p-3 space-y-2"><h3 className="text-sm font-semibold text-studio-100">3. Run an evaluation</h3><p className="text-xs text-studio-400">Run 20 synthetic cases locally, then compare output correctness, tool order and call budgets.</p><a href="#local-evaluations" className="inline-block rounded-lg border border-studio-700 px-3 py-2 text-xs text-cyan-300">Show evaluation setup</a></div>
+          <div className="rounded-lg border border-studio-700 p-3 space-y-2"><h3 className="text-sm font-semibold text-studio-100">3. {supportsLocalDiscovery(window.location.hostname) ? 'Run an evaluation' : 'View evaluation results'}</h3><p className="text-xs text-studio-400">{supportsLocalDiscovery(window.location.hostname) ? 'Run 20 synthetic cases locally, then compare output correctness, tool order and call budgets.' : 'Import exported results to compare correctness, tool order and call budgets. Python runs in the local app.'}</p><a href="#local-evaluations" className="inline-block rounded-lg border border-studio-700 px-3 py-2 text-xs text-cyan-300">Show evaluation setup</a></div>
         </div>
         <details className="text-xs text-studio-400"><summary className="cursor-pointer py-2">More sample formats</summary><div className="flex flex-wrap gap-2">
           {['Claude Code', 'Gemini CLI'].map((name, i) => <button key={name} onClick={() => loadExamples([i === 0 ? 'claude-synthetic.jsonl' : 'gemini-synthetic.jsonl'])} disabled={loadingExamples} className="rounded-lg border border-studio-700 px-3 py-2 text-xs text-studio-200 hover:bg-studio-800 disabled:opacity-50">Try {name} example</button>)}

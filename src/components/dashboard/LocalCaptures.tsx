@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTraceStore } from '../../store/traceStore';
 import { LocalCapture, parseLocalCapture } from '../../lib/localCapture';
+import { supportsLocalDiscovery } from '../../lib/localService';
 
 export function LocalCaptures() {
   const { importTrace } = useTraceStore();
@@ -10,6 +11,7 @@ export function LocalCaptures() {
   const [error, setError] = useState('');
   const [opening, setOpening] = useState('');
   useEffect(() => {
+    if (!supportsLocalDiscovery(window.location.hostname)) return;
     let stopped = false;
     const controller = new AbortController();
     let detected = false;

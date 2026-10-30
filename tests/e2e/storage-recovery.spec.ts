@@ -21,6 +21,7 @@ test('failed deletion keeps the visible run and reports the storage error', asyn
 test('cancelled reset preserves imported data', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Try sanitized Codex examples' }).click();
+  await expect(page.getByRole('button', { name: 'Preview Markdown report' })).toBeVisible();
   const storedBefore = await page.evaluate(() => localStorage.getItem('tracelens_runs_v1'));
   await page.getByRole('button', { name: 'Reset to default synthetic demo datasets' }).click();
   await page.getByRole('dialog', { name: 'Replace stored runs with demos?' }).getByRole('button', { name: 'Cancel', exact: true }).click();
