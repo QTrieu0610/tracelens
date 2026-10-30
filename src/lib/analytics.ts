@@ -1,5 +1,5 @@
 import { TraceLensV1Trace, StudioAnalytics, RunComparisonResult, StepDiffItem } from '../types/trace';
-import { benchmarkMetadataIssues } from './validator';
+import { benchmarkMetadataIssues, evaluationMetadataIssues } from './validator';
 import { getRunDuration } from './runEvidence';
 
 export function computeStudioAnalytics(runs: TraceLensV1Trace[]): StudioAnalytics {
@@ -86,7 +86,13 @@ export function computeRunComparison(runA: TraceLensV1Trace, runB: TraceLensV1Tr
   const benchmarkA = runA.metadata?.benchmark;
   const benchmarkB = runB.metadata?.benchmark;
   const hasBenchmark = (run: TraceLensV1Trace) => !!run.metadata && 'benchmark' in run.metadata;
-  const alignment: RunComparisonResult['alignment'] = !hasBenchmark(runA) && !hasBenchmark(runB) ? 'sequence'
+  const evalA = runA.metadata?.evaluation, evalB = runB.metadata?.evaluation;
+  const hasEvaluation = (run: TraceLensV1Trace) => !!run.metadata && 'evaluation' in run.metadata;
+  const alignment: RunComparisonResult['alignment'] = hasEvaluation(runA) || hasEvaluation(runB)
+    ? !hasBenchmark(runA) && !hasBenchmark(runB) && evalA && evalB
+      && !evaluationMetadataIssues(evalA).length && !evaluationMetadataIssues(evalB).length
+      && evalA.datasetId === evalB.datasetId && evalA.datasetRevision === evalB.datasetRevision ? 'milestone' : 'incompatible'
+    : !hasBenchmark(runA) && !hasBenchmark(runB) ? 'sequence'
     : benchmarkA && benchmarkB && !benchmarkMetadataIssues(benchmarkA).length && !benchmarkMetadataIssues(benchmarkB).length
       && benchmarkA.experimentId === benchmarkB.experimentId && benchmarkA.taskId === benchmarkB.taskId ? 'milestone' : 'incompatible';
   const milestones = (run: TraceLensV1Trace) => {
@@ -139,6 +145,8 @@ export function computeRunComparison(runA: TraceLensV1Trace, runB: TraceLensV1Tr
     stepDiffs.push({
       index: i,
       name,
+      stepIdA: sA?.stepId,
+      stepIdB: sB?.stepId,
       typeA: sA?.type,
       typeB: sB?.type,
       statusA: sA?.status,
@@ -158,11 +166,21 @@ export function computeRunComparison(runA: TraceLensV1Trace, runB: TraceLensV1Tr
     runA,
     runB,
     alignment,
-    comparisonWarning: alignment === 'incompatible' ? 'Benchmark comparison requires valid metadata with the same experimentId and taskId on both runs. No steps aligned.' : undefined,
+    comparisonWarning: alignment === 'incompatible' ? 'Comparison requires matching valid evaluation dataset/revision or benchmark experiment/task metadata. No steps aligned.' : undefined,
     durationDeltaMs,
     tokenDelta,
     stepCountDelta,
     statusChanged,
-    stepDiffs
+    stepDiffs,
+    evaluationSummary: alignment === 'milestone' ? {
+      baselinePassed: [...milestonesA.values()].filter(s => s.status === 'success').length,
+      baselineTotal: milestonesA.size,
+      candidatePassed: [...milestonesB.values()].filter(s => s.status === 'success').length,
+      candidateTotal: milestonesB.size,
+      regressions: stepDiffs.filter(s => s.statusA === 'success' && s.statusB === 'failed').length,
+      improvements: stepDiffs.filter(s => s.statusA === 'failed' && s.statusB === 'success').length,
+      missing: stepDiffs.filter(s => s.statusB === undefined).length,
+      added: stepDiffs.filter(s => s.statusA === undefined).length,
+    } : undefined
   };
 }

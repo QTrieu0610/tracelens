@@ -8,7 +8,7 @@ it('closes the Vite server it owns without shell process termination', async () 
   try { expect((await fetch(server.url)).status).toBe(200); }
   finally { await server.close(); }
   await expect(fetch(server.url)).rejects.toThrow();
-}, 15000);
+}, 45000); // A cold Vite dependency scan on Windows can exceed 15 seconds.
 
 it('reuses an existing TraceLens server without taking ownership of it', async () => {
   const original = await startTestServer(0);
@@ -17,7 +17,7 @@ it('reuses an existing TraceLens server without taking ownership of it', async (
     await reused.close();
     expect((await fetch(original.url)).status).toBe(200);
   } finally { await original.close(); }
-}, 15000);
+}, 45000);
 
 it('refuses an unrelated server without stopping it', async () => {
   const external = createHttpServer((_request, response) => response.end('Unrelated application'));

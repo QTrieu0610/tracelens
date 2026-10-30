@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T07:47:48.649Z",
+  "generatedAt": "2026-10-30T03:10:09.493Z",
   "policy": "Product source allowlist; excludes real benchmark logs, workspaces, local credentials and build artifacts",
   "files": [
     {
@@ -24,7 +24,7 @@
     },
     {
       "path": "src/components/comparison/ComparisonView.tsx",
-      "sha256": "c21dbf82232d44096c9a934e4b1341b195fd75f9d93c7e72643702b70b68f374"
+      "sha256": "673c6fce80d39419a2338fee04d827c1f85f9b575b48366fcd16203f647edf63"
     },
     {
       "path": "src/components/comparison/ReportPreview.tsx",
@@ -36,11 +36,15 @@
     },
     {
       "path": "src/components/dashboard/ExecutionTable.tsx",
-      "sha256": "6955b1b28cb817c073cd4f5aca46b48f591cc5cc3308039885dfd52beb17c0fa"
+      "sha256": "ce86bac595440f940a7922f8afa00cf871a8591d0282f8f75c4883491d489d5c"
     },
     {
       "path": "src/components/dashboard/LocalCaptures.tsx",
-      "sha256": "7de141ec0a175a724fa46f2bb58bb51a7438b164a4f55abd0cc2150582ef0663"
+      "sha256": "7d10c5af22d78da17ecac959b738ebeddec05747da5a55bf0ab6b56ca2dd228b"
+    },
+    {
+      "path": "src/components/dashboard/LocalEvaluations.tsx",
+      "sha256": "f300e0edc9d92c59a3ce956352a0de7a4def260e05d19f63d87ccbe08d50c98d"
     },
     {
       "path": "src/components/explorer/StepInspector.tsx",
@@ -52,7 +56,7 @@
     },
     {
       "path": "src/components/explorer/TimelineView.tsx",
-      "sha256": "1382a74136414e3e829f38a1b4dab03779d5db9a02bf6552afe4032aa12eb631"
+      "sha256": "3a4b37561a8159cb9921314786f568a82a08ced2853aee0fb2b7c664e71ae6b4"
     },
     {
       "path": "src/components/layout/StudioHeader.tsx",
@@ -72,7 +76,7 @@
     },
     {
       "path": "src/lib/analytics.ts",
-      "sha256": "5dd0603adbc87019441eba1aa87fb1d1a837ea567ad40d7442366cade7dcf6b1"
+      "sha256": "82a650657b827a03e282e3c44b92d3497a268a07ab3be904ec56993aa505d70b"
     },
     {
       "path": "src/lib/captureCommands.ts",
@@ -80,7 +84,7 @@
     },
     {
       "path": "src/lib/comparisonReport.ts",
-      "sha256": "c2cb02310589cfa59ca95f0938d3b81fa4265d17ba3e91672842115dc10a3c60"
+      "sha256": "e6e9ec7ecfa420f477309bb3f71ca80b0f639a2fe778adec000b456712b2f131"
     },
     {
       "path": "src/lib/formatters.ts",
@@ -88,7 +92,7 @@
     },
     {
       "path": "src/lib/honestyAuditor.ts",
-      "sha256": "cb18d90205f01380711d3f25738b8d6f0127d5647287c12f0695cb7e23c1cd4b"
+      "sha256": "3a44515b8a7230db7446acfe25ca02cc1ed910b635c6fddd15d80a16df3972e3"
     },
     {
       "path": "src/lib/importAgy.ts",
@@ -124,11 +128,11 @@
     },
     {
       "path": "src/lib/storage.ts",
-      "sha256": "d1a7f784afba3363221d9f0801158d408089da99a457bd441a796fa12a98d880"
+      "sha256": "4b94add0f4ce6f6a78d3e36e222cd18a85f2bfb48a27b47223f8716e793187b8"
     },
     {
       "path": "src/lib/validator.ts",
-      "sha256": "14eac87905eefac1d7e7b8b3b1c61292840dde543ec5b93a8816229d29757ccd"
+      "sha256": "94e8e654b422f2c502356e53060bea960a7dc8ee33859f2a808808c2ff078a09"
     },
     {
       "path": "src/main.tsx",
@@ -136,11 +140,11 @@
     },
     {
       "path": "src/store/traceStore.tsx",
-      "sha256": "666fe9b33bb158f9f7b036fdc0d22e13de375e515ac54e53aefcd6f3cdfa348e"
+      "sha256": "6e5246ceda5e36c689a12b3a63c75a3fe21ceea9f0a39d187a40b6936e73345b"
     },
     {
       "path": "src/types/trace.ts",
-      "sha256": "75792f5ac6259ad9b10162586f49f2455af2282f80c9f72e4ed3427d5d05e1aa"
+      "sha256": "5ccf6f0f0db5ceed5284e54e6500a83404fdd2e87f6becf2c5b1098cdacb0483"
     },
     {
       "path": "public/examples/agy-synthetic.jsonl",
@@ -161,6 +165,14 @@
     {
       "path": "public/examples/gemini-synthetic.jsonl",
       "sha256": "78def91b86c2b94488f926caccc1d9f06600f9fd7989bc9818ea34205d4c61b3"
+    },
+    {
+      "path": "public/examples/pydantic-evals-baseline.json",
+      "sha256": "57d97bda4f22c9f32f1361684752e1ed3ff64c8632021d68b58ac4ab8f060705"
+    },
+    {
+      "path": "public/examples/pydantic-evals-regressed.json",
+      "sha256": "eaeff6f70b02b82680d0f81d6fab6d35a832c60068ad872a2c84e26f74775db8"
     },
     {
       "path": "public/examples/README.md",
@@ -195,12 +207,24 @@
       "sha256": "e43d4bc37cdb11c7afd2b8021e7e02134133b28b190e65a3129dac839610beb6"
     },
     {
+      "path": "scripts/eval-demo.mjs",
+      "sha256": "3d6ae4200a9c051bc0ecc1629fa9f2f7e98c2a8b16bf2067ae7dbe26756c52b1"
+    },
+    {
+      "path": "scripts/eval-demo.test.mjs",
+      "sha256": "86aa60f1d2defa943caffad5abe00ca4afd6ff728e8a73ad27d0b41670028a44"
+    },
+    {
+      "path": "scripts/local-evaluations.mjs",
+      "sha256": "eb95a6acf1379581459c5de29b986e8a28a7fad590bb12fc426c36e2c2c54e63"
+    },
+    {
       "path": "scripts/local-product.test.mjs",
-      "sha256": "45d761cf96b13d6b21bf2e10f101b6947840e78b5e8540ddb903abe3a1410d2b"
+      "sha256": "9183c63dc2e97266cf9b26bee0ecea811592db3b20c974d119be5cd8d6536ed7"
     },
     {
       "path": "scripts/local-server.mjs",
-      "sha256": "0798a3c4d350c402bc35707ed2e3b3f25bbe7c00fab77c0784ea50efb4147ab8"
+      "sha256": "cbe266bcb715d5e19acab1f211fe14733952f102ca969dc2e82e956c67bf7000"
     },
     {
       "path": "scripts/package-app.mjs",
@@ -208,19 +232,43 @@
     },
     {
       "path": "scripts/prepare-release.mjs",
-      "sha256": "74bcd540c6502f2100351809f02613a236c5a3b8bdb717d5eb28ceadfc649697"
+      "sha256": "106cdeb5ee233bd2b0ae79db0589984c8bfe9e61c92b95d56f4ffb64cf142fe5"
     },
     {
       "path": "scripts/prepare-release.test.mjs",
-      "sha256": "a917fa6ac4b83782886d446b399b7b7f3433cb16fa5357952776c5931605d2bf"
+      "sha256": "07649df435b532cc7d63a54bf5f3aedd70fb666c4fc83d6d53e15f4ddbcfb9ef"
+    },
+    {
+      "path": "scripts/pydantic_evals_demo.py",
+      "sha256": "c8c0b49e4f2a32d750078ae658c5afe1855714d367b3f9ac1218fc9a5a8ab15d"
+    },
+    {
+      "path": "scripts/pydantic_evals_export.py",
+      "sha256": "0b2630bb0bc000fdc84df5dd8b59a2324ff038a9c69e8430d327f235940c6169"
     },
     {
       "path": "scripts/record-honesty-video.mjs",
       "sha256": "9e78abd43d4b4991371d0692a2dd9295cc173112ab51cd9fe162efae359cef68"
     },
     {
+      "path": "scripts/requirements-evals.txt",
+      "sha256": "551b5c5122da5862531c0dbdf20c5105e3c14e98cb27df09f21da86b645dca58"
+    },
+    {
+      "path": "scripts/test_pydantic_evals.py",
+      "sha256": "c53efda01582985ecdbcca786e8a5c47bc29b538b26ca30bb50afff57f943604"
+    },
+    {
+      "path": "scripts/trace-validator.d.mts",
+      "sha256": "631e9b9505cbaeef754387972c8a4b4aaeb399e23d2df874f95a524d51a2d4c8"
+    },
+    {
+      "path": "scripts/trace-validator.mjs",
+      "sha256": "76f443d4d2937592d27063d13a46c210ce0a5f743e778c60aa645f6ca0363c26"
+    },
+    {
       "path": "scripts/tracelens.mjs",
-      "sha256": "de08cc98b23678cf117f4a0ebf6f4747529374e7c9f29b2587cfa6494c80421b"
+      "sha256": "f5f11247b174ae2587d4ef8cdc631c2b5f9a93f1f15747df8e02cec11e7e3b1d"
     },
     {
       "path": "tests/e2e/agy-import.spec.ts",
@@ -247,6 +295,10 @@
       "sha256": "b14b9026e50b312d9b7fa9e0d7643f81b911b547c152915b9dd12ad10adb3d1c"
     },
     {
+      "path": "tests/e2e/easier-evals.spec.ts",
+      "sha256": "46455dc0c29f94c15679d9649f7ae354800b58ed9fa1199cbcfd39de534280e4"
+    },
+    {
       "path": "tests/e2e/explorer-search.spec.ts",
       "sha256": "43553b3cb3f99a3db15fcf866e43a98ad54a9f17a2dddac1a1767fe53fe3363f"
     },
@@ -269,6 +321,10 @@
     {
       "path": "tests/e2e/product-onboarding.spec.ts",
       "sha256": "9e54c6ea2e2c173ea18d37514e42c9f2b4e7f57aa4cad5079c86640a682f0be1"
+    },
+    {
+      "path": "tests/e2e/pydantic-evals.spec.ts",
+      "sha256": "6e70802d20de10b0db78721471cdc3bb50d2c53fb304969ce8e7be18ffa161b1"
     },
     {
       "path": "tests/e2e/report-export.spec.ts",
@@ -319,6 +375,10 @@
       "sha256": "c74b9639c82832ef5f0a5e1d9d7997415e461716ed8b368bca8fe755fae4c53f"
     },
     {
+      "path": "tests/unit/evaluation.test.ts",
+      "sha256": "9fecdbdde40db6582ca81ef0192567bbb24509742f948f5d8c8ba44d3a1d6148"
+    },
+    {
       "path": "tests/unit/formatters.test.ts",
       "sha256": "c670c12cd09403dfa3e04bd3ffb32f09d07401e6669ff4d6c23f94fb64fc0c72"
     },
@@ -347,6 +407,10 @@
       "sha256": "632645f350550b385f9e90e2e3a0f4d0e1f8b0d8ee8ffff7bf306e4526c6285b"
     },
     {
+      "path": "tests/unit/pydantic-artifacts.test.ts",
+      "sha256": "ef9d7530977458b211473557715f5f581fbc5c4fd696e203bb04716671eb80cb"
+    },
+    {
       "path": "tests/unit/runEvidence.test.ts",
       "sha256": "ff16fadb19fb6fcf2116ace94e14651b78b1e6d714f504ade42c6dc8f12afd73"
     },
@@ -360,11 +424,11 @@
     },
     {
       "path": "tests/unit/storage.test.ts",
-      "sha256": "f224166a7443559ab75d8600c1df417f80da756ef8e441e471a43d02365a06f9"
+      "sha256": "1f2e270091275719cf00c2e1e4978d2bed19dae3cac546167d838735c74f9567"
     },
     {
       "path": "tests/unit/test-server.test.ts",
-      "sha256": "698ff637cb6d514b5d8e376b1c6115bdc07e6e8d668c6740b0b6dd9f646faa16"
+      "sha256": "73ec3846647cf26b678b19f293fe6309f959b843cc14bd9d199e17196af10396"
     },
     {
       "path": "tests/unit/validator.test.ts",
@@ -392,7 +456,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "1b87469b090f313f355cdf6dc24af98835a08de1dc4bcc5225da8eaba1556028"
+      "sha256": "5f42236e36d9b1327d1c0e7b9d41799484362239625408a2477795aa8f76cc70"
     },
     {
       "path": "LICENSE",
@@ -408,11 +472,11 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "10290f1efe843b7dffa73d60175529c5adac070aa7dc522c4cdb9796b6501e98"
+      "sha256": "07c453f0a5797ec419c3c53f385af726537e5d7ad2130d257cba89ef27624774"
     },
     {
       "path": "package.json",
-      "sha256": "5f37e7a4fbc5ef389455c8e7903e041271598fb28980aa4bf81b0196046e9808"
+      "sha256": "21cf8e44243357e9b330e1f858b3be978650417d939613fae64f79b54e7a1747"
     },
     {
       "path": "package-lock.json",
@@ -472,11 +536,19 @@
     },
     {
       "path": "docs/local-use.md",
-      "sha256": "8d0f151e6cab7826302494d544be99a11e8016ff15b9bf16be80fff7962087c5"
+      "sha256": "ff4964f9ad8554e88883d74ceb5c7fa08d5652625b8bd1a99c998cca1ae641b0"
+    },
+    {
+      "path": "docs/pydantic-evals.md",
+      "sha256": "b46e83c1ab8e6ef03487fbc489d1c953163d39d19c7ffc4862ec8380651417e1"
+    },
+    {
+      "path": "docs/pydantic-evals-results.json",
+      "sha256": "4c7e7b1d47970adac5991000276eb612e7302a39431cc6c5ad42c3695d3698a3"
     },
     {
       "path": "docs/screenshots/product-demo.png",
-      "sha256": "51590334a35b892f548e261f4d16f375053afbd26b45c92800a63de8d2451547"
+      "sha256": "876a970459cf0d6fcdd459e997838a3300ca26aa6147d2bbab7af3beccfb68c6"
     }
   ]
 }

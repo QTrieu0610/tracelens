@@ -6,6 +6,7 @@ import { formatDateShort, formatTokens } from '../../lib/formatters';
 import { formatRunDuration, getRunDuration, getRunStatusLabel, isSyntheticDemo } from '../../lib/runEvidence';
 import { parseTraceImport } from '../../lib/importTrace';
 import { LocalCaptures } from './LocalCaptures';
+import { LocalEvaluations } from './LocalEvaluations';
 
 export function ExecutionTable() {
   const {
@@ -19,7 +20,8 @@ export function ExecutionTable() {
     setActiveTab,
     setComparisonRunId,
     setImportModalOpen,
-    importTrace
+    importTrace,
+    importComparison
   } = useTraceStore();
   const [exampleError, setExampleError] = React.useState('');
   const [loadingExamples, setLoadingExamples] = React.useState(false);
@@ -33,9 +35,8 @@ export function ExecutionTable() {
         if (!parsed.valid || !parsed.trace) throw new Error('Example file could not be parsed');
         return { ...parsed.trace, metadata: { ...parsed.trace.metadata, syntheticDemo: true } };
       }));
-      for (const example of examples) importTrace(example);
-      selectRun(examples[0].runId);
-      if (examples.length === 2) { setComparisonRunId(examples[1].runId); setActiveTab('comparison'); }
+      if (examples.length === 2) importComparison(examples[0], examples[1]);
+      else importTrace(examples[0]);
     } catch { setExampleError('Could not load examples. Try importing the files from public/examples manually.'); }
     finally { setLoadingExamples(false); }
   };
@@ -72,20 +73,24 @@ export function ExecutionTable() {
   return (
     <div className="space-y-4">
       <div className="rounded-xl border border-cyan-800/50 bg-cyan-950/10 p-4 space-y-2">
-        <h2 className="text-sm font-semibold text-studio-100">Find what changed between agent runs</h2>
-        <p className="text-xs text-studio-300">Import Codex exec, Antigravity (AGY), Claude Code or Gemini CLI structured logs to inspect tokens and failed tools. Compare runs or evaluator milestones and preview a Markdown report. Processing stays in this browser.</p>
-        <div className="flex flex-wrap gap-2">
-          <button onClick={() => setImportModalOpen(true)} className="rounded-lg px-3 py-2 bg-cyan-600 text-white text-xs font-semibold hover:bg-cyan-500">Import your logs</button>
+        <h2 className="text-lg font-semibold text-studio-100">Start with a sample, your logs, or an evaluation</h2>
+        <p className="text-sm text-studio-300">See what the agent did, find failures and compare results. Your imported data stays in this browser.</p>
+        <div className="grid gap-3 md:grid-cols-3 pt-2">
+          <div className="rounded-lg border border-studio-700 p-3 space-y-2"><h3 className="text-sm font-semibold text-studio-100">1. Try a sample</h3><p className="text-xs text-studio-400">Start here to explore a comparison. No account, Python or API key needed.</p>
           <button onClick={() => loadExamples(['codex-before.jsonl', 'codex-after.jsonl'])} disabled={loadingExamples} className="rounded-lg px-3 py-2 bg-cyan-600 text-white text-xs font-medium hover:bg-cyan-500 disabled:opacity-50">{loadingExamples ? 'Loading examples…' : 'Try sanitized Codex examples'}</button>
-          {['Claude Code', 'Gemini CLI'].map((name, i) => <button key={name} onClick={() => loadExamples([i === 0 ? 'claude-synthetic.jsonl' : 'gemini-synthetic.jsonl'])} disabled={loadingExamples} className="rounded-lg border border-studio-700 px-3 py-2 text-xs text-studio-200 hover:bg-studio-800 disabled:opacity-50">Try {name} example</button>)}
+          <button onClick={() => loadExamples(['pydantic-evals-baseline.json', 'pydantic-evals-regressed.json'])} disabled={loadingExamples} className="rounded-lg border border-studio-700 px-3 py-2 text-xs text-studio-200 hover:bg-studio-800 disabled:opacity-50">Try Pydantic Evals comparison</button>
+          </div>
+          <div className="rounded-lg border border-studio-700 p-3 space-y-2"><h3 className="text-sm font-semibold text-studio-100">2. Inspect your logs</h3><p className="text-xs text-studio-400">Open Codex, Claude Code, Gemini CLI, AGY or TraceLens JSON files. Find a failed step and inspect its output.</p>
+          <button onClick={() => setImportModalOpen(true)} className="rounded-lg px-3 py-2 bg-cyan-600 text-white text-xs font-semibold hover:bg-cyan-500">Import your logs</button>
+          </div>
+          <div className="rounded-lg border border-studio-700 p-3 space-y-2"><h3 className="text-sm font-semibold text-studio-100">3. Run an evaluation</h3><p className="text-xs text-studio-400">Run 20 synthetic cases locally, then compare output correctness, tool order and call budgets.</p><a href="#local-evaluations" className="inline-block rounded-lg border border-studio-700 px-3 py-2 text-xs text-cyan-300">Show evaluation setup</a></div>
         </div>
-        <ol className="list-decimal pl-4 text-xs text-studio-300 space-y-1">
-          <li>Import an existing log, or try a synthetic example without an account.</li>
-          <li>In Trace Explorer, inspect the first failed step and its output.</li>
-          <li>Compare two runs, then review the Markdown report before sharing.</li>
-        </ol>
+        <details className="text-xs text-studio-400"><summary className="cursor-pointer py-2">More sample formats</summary><div className="flex flex-wrap gap-2">
+          {['Claude Code', 'Gemini CLI'].map((name, i) => <button key={name} onClick={() => loadExamples([i === 0 ? 'claude-synthetic.jsonl' : 'gemini-synthetic.jsonl'])} disabled={loadingExamples} className="rounded-lg border border-studio-700 px-3 py-2 text-xs text-studio-200 hover:bg-studio-800 disabled:opacity-50">Try {name} example</button>)}
+        </div></details>
         {exampleError && <p role="alert" className="text-xs text-rose-300">{exampleError}</p>}
       </div>
+      <LocalEvaluations />
       <LocalCaptures />
       {/* Search and Filters Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">

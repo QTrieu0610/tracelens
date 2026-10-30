@@ -67,7 +67,7 @@ export interface TraceLensV1Trace {
   totalDurationMs: number;
   totalTokens?: TokenUsage;
   tags?: string[];
-  metadata?: Record<string, unknown> & { benchmark?: BenchmarkMetadata };
+  metadata?: Record<string, unknown> & { benchmark?: BenchmarkMetadata; evaluation?: { datasetId: string; datasetRevision: string } };
   steps: TraceLensStep[];
 }
 
@@ -104,6 +104,8 @@ export interface StudioAnalytics {
 export interface StepDiffItem {
   index: number;
   name: string;
+  stepIdA?: string;
+  stepIdB?: string;
   typeA?: StepType;
   typeB?: StepType;
   statusA?: StepStatus;
@@ -128,6 +130,10 @@ export interface RunComparisonResult {
   stepCountDelta: number;
   statusChanged: boolean;
   stepDiffs: StepDiffItem[];
+  evaluationSummary?: {
+    baselinePassed: number; baselineTotal: number; candidatePassed: number; candidateTotal: number;
+    regressions: number; improvements: number; missing: number; added: number;
+  };
 }
 
 export type HonestyVerdict =

@@ -42,14 +42,16 @@ export function persistRuns(runs: TraceLensV1Trace[]): boolean {
 }
 
 export function saveRun(run: TraceLensV1Trace): TraceLensV1Trace[] {
+  return saveRuns([run]);
+}
+
+export function saveRuns(incoming: TraceLensV1Trace[]): TraceLensV1Trace[] {
   const current = loadStoredRuns();
-  const existingIdx = current.findIndex(r => r.runId === run.runId);
-  let updated: TraceLensV1Trace[];
-  if (existingIdx >= 0) {
-    updated = [...current];
-    updated[existingIdx] = run;
-  } else {
-    updated = [run, ...current];
+  const updated = [...current];
+  for (const run of [...incoming].reverse()) {
+    const index = updated.findIndex(r => r.runId === run.runId);
+    if (index >= 0) updated[index] = run;
+    else updated.unshift(run);
   }
   if (!persistRuns(updated)) throw new Error('Could not save the imported trace to browser storage. Free some space or export existing runs first.');
   return updated;

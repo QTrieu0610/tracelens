@@ -15,7 +15,19 @@ npm ci
 npm start
 ```
 
-The built viewer opens at `http://127.0.0.1:5188`. Keep the terminal open; use `npm start -- --no-open` to skip opening the browser or `--port 5189` to select another port. Click **Try sanitized Codex examples** for a comparison, or try the Claude Code and Gemini CLI examples. In Trace Explorer, click **Inspect first failed step**, then **Output** to see the recorded evidence. Choose **Preview Markdown report** when comparing runs, review/edit the text, then copy or download it. Use `npm run dev` for development with hot reload.
+Your browser opens automatically at `http://127.0.0.1:5188`. Keep that terminal open. Choose a starting point in Dashboard:
+
+| What you want to do | Where to start |
+| --- | --- |
+| Explore without an account or API key | **Try a sample** → Codex or Pydantic Evals comparison |
+| Inspect a saved agent run | **Import your logs** → choose or paste your file |
+| Run the evaluation demo | In another terminal, run `npm run evals`, then **Local evaluations → Open comparison** |
+
+The evaluation command prepares its own Python environment on first run (Python 3.11+ and internet required). It runs 20 synthetic cases without model calls. You do not need Python to view logs or sample comparisons. Results appear automatically; no JSON file selection is needed.
+
+In a comparison, the evaluation summary shows newly failed and missing checks. Choose **View candidate evidence** beside a check to inspect it, then **Back to comparison** to return. **Preview Markdown report** lets you review/edit the summary before copying or downloading it.
+
+If the browser does not open, visit the address printed in the terminal. If the port is busy, use `npm start -- --port 5189`. Use `npm start -- --no-open` on a headless machine, or `npm run dev` for development. See [local setup and troubleshooting](docs/local-use.md).
 
 ## Capture an agent run automatically
 
@@ -65,6 +77,8 @@ npm run test:cli
 This starts one small run per installed CLI, allows up to 120 seconds per process, saves raw output under `.cli-smoke-runs/<timestamp>/`, and prints a `summary.json` path. A pass checks the expected response, absence of tool calls and successful parsing; it does not establish task quality or compare models. Missing CLIs, authentication errors and import failures are reported separately. Raw logs are private and excluded from the curated public source. See [the latest local attempt and setup](docs/cli-smoke-results.md).
 
 ## What you can learn
+
+**Pydantic Evals integration:** In Dashboard, choose **Try Pydantic Evals comparison** to inspect a recorded 20-case synthetic experiment with output, tool-order and call-budget checks. To evaluate Python agents and export their results locally, see [setup, measured results and limits](docs/pydantic-evals.md).
 
 For long logs, Trace Explorer searches step names, structured inputs/outputs and errors. Combine status/type filters, move between failures, and browse 100 steps per page. Keyboard navigation follows the filtered sequence; changing the selected run resets these filters.
 

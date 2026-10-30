@@ -1,0 +1,4775 @@
+{
+  "schemaVersion": "tracelens-v1",
+  "runId": "047fcfbf-df41-4734-80c8-abd77d154306",
+  "name": "Pydantic Evals baseline (synthetic)",
+  "agentName": "form-agent-baseline",
+  "model": "deterministic-no-llm",
+  "status": "success",
+  "startedAt": "2026-10-30T02:11:54.661780+00:00",
+  "completedAt": "2026-10-30T02:11:54.739623+00:00",
+  "totalDurationMs": 77.8438,
+  "tags": [
+    "pydantic-evals",
+    "demo"
+  ],
+  "metadata": {
+    "source": "pydantic-evals",
+    "syntheticDemo": true,
+    "evaluation": {
+      "datasetId": "form-fill-integration",
+      "datasetRevision": "2f03812fca63eae5559ee6bf10f8c2fb5ac4f946c3df4e5bf16fc7f1f62c0b90"
+    },
+    "import": {
+      "timingKnown": true,
+      "telemetryComplete": false,
+      "warnings": [
+        "No model token telemetry exported."
+      ]
+    },
+    "scoreThresholds": {
+      "TrajectoryMatch": 1.0
+    }
+  },
+  "steps": [
+    {
+      "stepId": "step-0",
+      "stepIndex": 0,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.669143+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "spanId": "220ccc322f971305"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-1",
+      "stepIndex": 1,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.669143+00:00",
+      "durationMs": 0.7517,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "spanId": "cd9666631ef794e2"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-2",
+      "stepIndex": 2,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.669895+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "spanId": "f983da14edb7e2f0"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-3",
+      "stepIndex": 3,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.669895+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "spanId": "1b5201bd4423e436"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-4",
+      "stepIndex": 4,
+      "type": "system_event",
+      "name": "clean-1 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.672831+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "clean",
+          "record": {
+            "name": "Contact 1",
+            "email": "contact1@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expected": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "taskDurationMs": 9.1014
+      }
+    },
+    {
+      "stepId": "step-5",
+      "stepIndex": 5,
+      "type": "system_event",
+      "name": "clean-1 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.672831+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-0",
+          "step-1",
+          "step-2",
+          "step-3"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "evaluator": true,
+        "milestoneId": "clean-1/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-6",
+      "stepIndex": 6,
+      "type": "system_event",
+      "name": "clean-1 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.672831+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-0",
+          "step-1",
+          "step-2",
+          "step-3"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "evaluator": true,
+        "milestoneId": "clean-1/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-7",
+      "stepIndex": 7,
+      "type": "system_event",
+      "name": "clean-1 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.672831+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-0",
+          "step-1",
+          "step-2",
+          "step-3"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "clean-1",
+        "evaluator": true,
+        "milestoneId": "clean-1/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-8",
+      "stepIndex": 8,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.673808+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "spanId": "4fec14b53817fd22"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-9",
+      "stepIndex": 9,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.673808+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "spanId": "13e71b499edf5e92"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-10",
+      "stepIndex": 10,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.673808+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "spanId": "fd0d36162af7bd25"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-11",
+      "stepIndex": 11,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.673808+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "spanId": "40f374ef397b73e8"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-12",
+      "stepIndex": 12,
+      "type": "system_event",
+      "name": "clean-2 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.676428+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "clean",
+          "record": {
+            "name": "Contact 2",
+            "email": "contact2@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expected": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "taskDurationMs": 2.4808
+      }
+    },
+    {
+      "stepId": "step-13",
+      "stepIndex": 13,
+      "type": "system_event",
+      "name": "clean-2 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.676428+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-8",
+          "step-9",
+          "step-10",
+          "step-11"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "evaluator": true,
+        "milestoneId": "clean-2/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-14",
+      "stepIndex": 14,
+      "type": "system_event",
+      "name": "clean-2 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.676428+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-8",
+          "step-9",
+          "step-10",
+          "step-11"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "evaluator": true,
+        "milestoneId": "clean-2/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-15",
+      "stepIndex": 15,
+      "type": "system_event",
+      "name": "clean-2 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.676428+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-8",
+          "step-9",
+          "step-10",
+          "step-11"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "clean-2",
+        "evaluator": true,
+        "milestoneId": "clean-2/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-16",
+      "stepIndex": 16,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.677444+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "spanId": "45b9e631dc89b7e1"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-17",
+      "stepIndex": 17,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.677974+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "spanId": "c83827085952af1c"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-18",
+      "stepIndex": 18,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.677974+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "spanId": "a10abb90ca0cc1c6"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-19",
+      "stepIndex": 19,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.677974+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "spanId": "2d02173099bf0223"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-20",
+      "stepIndex": 20,
+      "type": "system_event",
+      "name": "clean-3 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.680268+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "clean",
+          "record": {
+            "name": "Contact 3",
+            "email": "contact3@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expected": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "taskDurationMs": 0.5304
+      }
+    },
+    {
+      "stepId": "step-21",
+      "stepIndex": 21,
+      "type": "system_event",
+      "name": "clean-3 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.680268+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-16",
+          "step-17",
+          "step-18",
+          "step-19"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "evaluator": true,
+        "milestoneId": "clean-3/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-22",
+      "stepIndex": 22,
+      "type": "system_event",
+      "name": "clean-3 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.680268+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-16",
+          "step-17",
+          "step-18",
+          "step-19"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "evaluator": true,
+        "milestoneId": "clean-3/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-23",
+      "stepIndex": 23,
+      "type": "system_event",
+      "name": "clean-3 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.680268+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-16",
+          "step-17",
+          "step-18",
+          "step-19"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "clean-3",
+        "evaluator": true,
+        "milestoneId": "clean-3/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-24",
+      "stepIndex": 24,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.680268+00:00",
+      "durationMs": 1.0906,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "spanId": "f3eabbf9d8e3a002"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-25",
+      "stepIndex": 25,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.681359+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "spanId": "a90dd88883a81fe7"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-26",
+      "stepIndex": 26,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.681359+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "spanId": "ec60276215c48ad2"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-27",
+      "stepIndex": 27,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.681359+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "spanId": "3f30480b943b6dd3"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-28",
+      "stepIndex": 28,
+      "type": "system_event",
+      "name": "clean-4 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.683351+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "clean",
+          "record": {
+            "name": "Contact 4",
+            "email": "contact4@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expected": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "taskDurationMs": 2.0766
+      }
+    },
+    {
+      "stepId": "step-29",
+      "stepIndex": 29,
+      "type": "system_event",
+      "name": "clean-4 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.683351+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-24",
+          "step-25",
+          "step-26",
+          "step-27"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "evaluator": true,
+        "milestoneId": "clean-4/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-30",
+      "stepIndex": 30,
+      "type": "system_event",
+      "name": "clean-4 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.683351+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-24",
+          "step-25",
+          "step-26",
+          "step-27"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "evaluator": true,
+        "milestoneId": "clean-4/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-31",
+      "stepIndex": 31,
+      "type": "system_event",
+      "name": "clean-4 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.683351+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-24",
+          "step-25",
+          "step-26",
+          "step-27"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "clean-4",
+        "evaluator": true,
+        "milestoneId": "clean-4/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-32",
+      "stepIndex": 32,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.684336+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "spanId": "2791ccdfdd9414a7"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-33",
+      "stepIndex": 33,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.684336+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "spanId": "c31763ea1593466e"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-34",
+      "stepIndex": 34,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.684336+00:00",
+      "durationMs": 0.9788,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "spanId": "37f0c04fb3e1c33c"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-35",
+      "stepIndex": 35,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.685315+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "spanId": "70c9ab079df2c436"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-36",
+      "stepIndex": 36,
+      "type": "system_event",
+      "name": "clean-5 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.687293+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "clean",
+          "record": {
+            "name": "Contact 5",
+            "email": "contact5@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expected": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "taskDurationMs": 0.9787999999999999
+      }
+    },
+    {
+      "stepId": "step-37",
+      "stepIndex": 37,
+      "type": "system_event",
+      "name": "clean-5 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.687293+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-32",
+          "step-33",
+          "step-34",
+          "step-35"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "evaluator": true,
+        "milestoneId": "clean-5/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-38",
+      "stepIndex": 38,
+      "type": "system_event",
+      "name": "clean-5 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.687293+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-32",
+          "step-33",
+          "step-34",
+          "step-35"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "evaluator": true,
+        "milestoneId": "clean-5/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-39",
+      "stepIndex": 39,
+      "type": "system_event",
+      "name": "clean-5 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.687293+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-32",
+          "step-33",
+          "step-34",
+          "step-35"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "clean-5",
+        "evaluator": true,
+        "milestoneId": "clean-5/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-40",
+      "stepIndex": 40,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.688317+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "spanId": "fdf4ebc3612d478f"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-41",
+      "stepIndex": 41,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.688317+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "spanId": "4d2c7d29111afb5c"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-42",
+      "stepIndex": 42,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.688317+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "spanId": "6a9d6b0de2b992af"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-43",
+      "stepIndex": 43,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.688317+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "spanId": "66eddbac91e956cb"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-44",
+      "stepIndex": 44,
+      "type": "system_event",
+      "name": "output-1 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.690011+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "output",
+          "record": {
+            "name": "Contact 1",
+            "email": "contact1@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expected": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "taskDurationMs": 2.0078
+      }
+    },
+    {
+      "stepId": "step-45",
+      "stepIndex": 45,
+      "type": "system_event",
+      "name": "output-1 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.690011+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-40",
+          "step-41",
+          "step-42",
+          "step-43"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "evaluator": true,
+        "milestoneId": "output-1/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-46",
+      "stepIndex": 46,
+      "type": "system_event",
+      "name": "output-1 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.690011+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-40",
+          "step-41",
+          "step-42",
+          "step-43"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "evaluator": true,
+        "milestoneId": "output-1/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-47",
+      "stepIndex": 47,
+      "type": "system_event",
+      "name": "output-1 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.690011+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-40",
+          "step-41",
+          "step-42",
+          "step-43"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "output-1",
+        "evaluator": true,
+        "milestoneId": "output-1/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-48",
+      "stepIndex": 48,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.691531+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "spanId": "fb21cb2925668bb7"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-49",
+      "stepIndex": 49,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.691531+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "spanId": "36bd8d6f7f7e32ed"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-50",
+      "stepIndex": 50,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.691531+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "spanId": "94fbcd226ea43a6a"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-51",
+      "stepIndex": 51,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.692515+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "spanId": "efdb3027fbe8137f"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-52",
+      "stepIndex": 52,
+      "type": "system_event",
+      "name": "output-2 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.693797+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "output",
+          "record": {
+            "name": "Contact 2",
+            "email": "contact2@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expected": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "taskDurationMs": 2.5037000000000003
+      }
+    },
+    {
+      "stepId": "step-53",
+      "stepIndex": 53,
+      "type": "system_event",
+      "name": "output-2 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.693797+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-48",
+          "step-49",
+          "step-50",
+          "step-51"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "evaluator": true,
+        "milestoneId": "output-2/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-54",
+      "stepIndex": 54,
+      "type": "system_event",
+      "name": "output-2 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.693797+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-48",
+          "step-49",
+          "step-50",
+          "step-51"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "evaluator": true,
+        "milestoneId": "output-2/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-55",
+      "stepIndex": 55,
+      "type": "system_event",
+      "name": "output-2 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.693797+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-48",
+          "step-49",
+          "step-50",
+          "step-51"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "output-2",
+        "evaluator": true,
+        "milestoneId": "output-2/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-56",
+      "stepIndex": 56,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.694819+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "spanId": "10d546885afc4b69"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-57",
+      "stepIndex": 57,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.694819+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "spanId": "a012a21a417f296b"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-58",
+      "stepIndex": 58,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.695796+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "spanId": "49cf55a934eeead8"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-59",
+      "stepIndex": 59,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.695796+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "spanId": "3bee84c5ea4bafd8"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-60",
+      "stepIndex": 60,
+      "type": "system_event",
+      "name": "output-3 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.697311+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "output",
+          "record": {
+            "name": "Contact 3",
+            "email": "contact3@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expected": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "taskDurationMs": 0.9762
+      }
+    },
+    {
+      "stepId": "step-61",
+      "stepIndex": 61,
+      "type": "system_event",
+      "name": "output-3 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.697311+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-56",
+          "step-57",
+          "step-58",
+          "step-59"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "evaluator": true,
+        "milestoneId": "output-3/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-62",
+      "stepIndex": 62,
+      "type": "system_event",
+      "name": "output-3 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.697311+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-56",
+          "step-57",
+          "step-58",
+          "step-59"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "evaluator": true,
+        "milestoneId": "output-3/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-63",
+      "stepIndex": 63,
+      "type": "system_event",
+      "name": "output-3 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.697311+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-56",
+          "step-57",
+          "step-58",
+          "step-59"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "output-3",
+        "evaluator": true,
+        "milestoneId": "output-3/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-64",
+      "stepIndex": 64,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.698860+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "spanId": "1f455b7e01b25433"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-65",
+      "stepIndex": 65,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.698860+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "spanId": "131db91e804eafda"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-66",
+      "stepIndex": 66,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.698860+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "spanId": "3aa247a453ec3241"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-67",
+      "stepIndex": 67,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.698860+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "spanId": "4bf4b0903a404e99"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-68",
+      "stepIndex": 68,
+      "type": "system_event",
+      "name": "output-4 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.700866+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "output",
+          "record": {
+            "name": "Contact 4",
+            "email": "contact4@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expected": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "taskDurationMs": 1.5502999999999998
+      }
+    },
+    {
+      "stepId": "step-69",
+      "stepIndex": 69,
+      "type": "system_event",
+      "name": "output-4 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.700866+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-64",
+          "step-65",
+          "step-66",
+          "step-67"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "evaluator": true,
+        "milestoneId": "output-4/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-70",
+      "stepIndex": 70,
+      "type": "system_event",
+      "name": "output-4 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.700866+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-64",
+          "step-65",
+          "step-66",
+          "step-67"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "evaluator": true,
+        "milestoneId": "output-4/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-71",
+      "stepIndex": 71,
+      "type": "system_event",
+      "name": "output-4 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.700866+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-64",
+          "step-65",
+          "step-66",
+          "step-67"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "output-4",
+        "evaluator": true,
+        "milestoneId": "output-4/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-72",
+      "stepIndex": 72,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.701963+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "spanId": "217ac3fbe8668225"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-73",
+      "stepIndex": 73,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.701963+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "spanId": "811b793cd434f22d"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-74",
+      "stepIndex": 74,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.701963+00:00",
+      "durationMs": 1.0178,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "spanId": "177b5699c120ecac"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-75",
+      "stepIndex": 75,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.702981+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "spanId": "ef49d08e34b8aa86"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-76",
+      "stepIndex": 76,
+      "type": "system_event",
+      "name": "output-5 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.704152+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "output",
+          "record": {
+            "name": "Contact 5",
+            "email": "contact5@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expected": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "taskDurationMs": 1.0177999999999998
+      }
+    },
+    {
+      "stepId": "step-77",
+      "stepIndex": 77,
+      "type": "system_event",
+      "name": "output-5 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.704152+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-72",
+          "step-73",
+          "step-74",
+          "step-75"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "evaluator": true,
+        "milestoneId": "output-5/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-78",
+      "stepIndex": 78,
+      "type": "system_event",
+      "name": "output-5 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.704152+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-72",
+          "step-73",
+          "step-74",
+          "step-75"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "evaluator": true,
+        "milestoneId": "output-5/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-79",
+      "stepIndex": 79,
+      "type": "system_event",
+      "name": "output-5 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.704152+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-72",
+          "step-73",
+          "step-74",
+          "step-75"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "output-5",
+        "evaluator": true,
+        "milestoneId": "output-5/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-80",
+      "stepIndex": 80,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.705139+00:00",
+      "durationMs": 0.9777,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "spanId": "2109501c34367110"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-81",
+      "stepIndex": 81,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.706117+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "spanId": "93b02b03ef815ce7"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-82",
+      "stepIndex": 82,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.706117+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "spanId": "c1a7ff13970b0f15"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-83",
+      "stepIndex": 83,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.706117+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "spanId": "ed102dd194db4e32"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-84",
+      "stepIndex": 84,
+      "type": "system_event",
+      "name": "order-1 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.708142+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "order",
+          "record": {
+            "name": "Contact 1",
+            "email": "contact1@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expected": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "taskDurationMs": 0.9777
+      }
+    },
+    {
+      "stepId": "step-85",
+      "stepIndex": 85,
+      "type": "system_event",
+      "name": "order-1 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.708142+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-80",
+          "step-81",
+          "step-82",
+          "step-83"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "evaluator": true,
+        "milestoneId": "order-1/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-86",
+      "stepIndex": 86,
+      "type": "system_event",
+      "name": "order-1 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.708142+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-80",
+          "step-81",
+          "step-82",
+          "step-83"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "evaluator": true,
+        "milestoneId": "order-1/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-87",
+      "stepIndex": 87,
+      "type": "system_event",
+      "name": "order-1 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.708142+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-80",
+          "step-81",
+          "step-82",
+          "step-83"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "order-1",
+        "evaluator": true,
+        "milestoneId": "order-1/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-88",
+      "stepIndex": 88,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.709667+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "spanId": "d0d4286ccaa38426"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-89",
+      "stepIndex": 89,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.709667+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "spanId": "148a3c2301635384"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-90",
+      "stepIndex": 90,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.709667+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "spanId": "a78ec073e4d08bea"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-91",
+      "stepIndex": 91,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.709667+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "spanId": "40e01e0c7c626879"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-92",
+      "stepIndex": 92,
+      "type": "system_event",
+      "name": "order-2 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.711853+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "order",
+          "record": {
+            "name": "Contact 2",
+            "email": "contact2@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expected": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "taskDurationMs": 2.5802
+      }
+    },
+    {
+      "stepId": "step-93",
+      "stepIndex": 93,
+      "type": "system_event",
+      "name": "order-2 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.711853+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-88",
+          "step-89",
+          "step-90",
+          "step-91"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "evaluator": true,
+        "milestoneId": "order-2/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-94",
+      "stepIndex": 94,
+      "type": "system_event",
+      "name": "order-2 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.711853+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-88",
+          "step-89",
+          "step-90",
+          "step-91"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "evaluator": true,
+        "milestoneId": "order-2/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-95",
+      "stepIndex": 95,
+      "type": "system_event",
+      "name": "order-2 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.711853+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-88",
+          "step-89",
+          "step-90",
+          "step-91"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "order-2",
+        "evaluator": true,
+        "milestoneId": "order-2/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-96",
+      "stepIndex": 96,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.713032+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "spanId": "a75626f511a87646"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-97",
+      "stepIndex": 97,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.713032+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "spanId": "28d452fa08caa20a"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-98",
+      "stepIndex": 98,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.713032+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "spanId": "803a9e03e107f03e"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-99",
+      "stepIndex": 99,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.713032+00:00",
+      "durationMs": 1.0713,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "spanId": "31211639e3ecb116"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-100",
+      "stepIndex": 100,
+      "type": "system_event",
+      "name": "order-3 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.715412+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "order",
+          "record": {
+            "name": "Contact 3",
+            "email": "contact3@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expected": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "taskDurationMs": 2.2497
+      }
+    },
+    {
+      "stepId": "step-101",
+      "stepIndex": 101,
+      "type": "system_event",
+      "name": "order-3 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.715412+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-96",
+          "step-97",
+          "step-98",
+          "step-99"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "evaluator": true,
+        "milestoneId": "order-3/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-102",
+      "stepIndex": 102,
+      "type": "system_event",
+      "name": "order-3 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.715412+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-96",
+          "step-97",
+          "step-98",
+          "step-99"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "evaluator": true,
+        "milestoneId": "order-3/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-103",
+      "stepIndex": 103,
+      "type": "system_event",
+      "name": "order-3 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.715412+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-96",
+          "step-97",
+          "step-98",
+          "step-99"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "order-3",
+        "evaluator": true,
+        "milestoneId": "order-3/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-104",
+      "stepIndex": 104,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.716467+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "spanId": "b10947274f0a4965"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-105",
+      "stepIndex": 105,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.716467+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "spanId": "4fa867c25eed66fa"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-106",
+      "stepIndex": 106,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.716467+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "spanId": "1fb17f807641657c"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-107",
+      "stepIndex": 107,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.717489+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "spanId": "796d96828eaef221"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-108",
+      "stepIndex": 108,
+      "type": "system_event",
+      "name": "order-4 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.719001+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "order",
+          "record": {
+            "name": "Contact 4",
+            "email": "contact4@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expected": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "taskDurationMs": 1.0221
+      }
+    },
+    {
+      "stepId": "step-109",
+      "stepIndex": 109,
+      "type": "system_event",
+      "name": "order-4 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.719001+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-104",
+          "step-105",
+          "step-106",
+          "step-107"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "evaluator": true,
+        "milestoneId": "order-4/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-110",
+      "stepIndex": 110,
+      "type": "system_event",
+      "name": "order-4 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.719001+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-104",
+          "step-105",
+          "step-106",
+          "step-107"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "evaluator": true,
+        "milestoneId": "order-4/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-111",
+      "stepIndex": 111,
+      "type": "system_event",
+      "name": "order-4 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.719001+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-104",
+          "step-105",
+          "step-106",
+          "step-107"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "order-4",
+        "evaluator": true,
+        "milestoneId": "order-4/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-112",
+      "stepIndex": 112,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.720011+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "spanId": "1760d9f6264ea004"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-113",
+      "stepIndex": 113,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.720520+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "spanId": "5b710f99d06ec231"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-114",
+      "stepIndex": 114,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.720520+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "spanId": "bd9ee849c1690b2d"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-115",
+      "stepIndex": 115,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.720520+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "spanId": "4fb170c7fbf95639"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-116",
+      "stepIndex": 116,
+      "type": "system_event",
+      "name": "order-5 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.722483+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "order",
+          "record": {
+            "name": "Contact 5",
+            "email": "contact5@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expected": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "taskDurationMs": 1.4931
+      }
+    },
+    {
+      "stepId": "step-117",
+      "stepIndex": 117,
+      "type": "system_event",
+      "name": "order-5 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.722483+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-112",
+          "step-113",
+          "step-114",
+          "step-115"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "evaluator": true,
+        "milestoneId": "order-5/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-118",
+      "stepIndex": 118,
+      "type": "system_event",
+      "name": "order-5 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.722483+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-112",
+          "step-113",
+          "step-114",
+          "step-115"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "evaluator": true,
+        "milestoneId": "order-5/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-119",
+      "stepIndex": 119,
+      "type": "system_event",
+      "name": "order-5 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.722483+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-112",
+          "step-113",
+          "step-114",
+          "step-115"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "order-5",
+        "evaluator": true,
+        "milestoneId": "order-5/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-120",
+      "stepIndex": 120,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.723529+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "spanId": "96f8a6758661a350"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-121",
+      "stepIndex": 121,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.723529+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "spanId": "01c587000814c459"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-122",
+      "stepIndex": 122,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.723529+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "spanId": "86eacd555060b96c"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-123",
+      "stepIndex": 123,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.724575+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 1\",\"email\":\"contact1@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "spanId": "fb20bfb290753c33"
+      },
+      "input": "{\"name\": \"Contact 1\", \"email\": \"contact1@example.test\"}"
+    },
+    {
+      "stepId": "step-124",
+      "stepIndex": 124,
+      "type": "system_event",
+      "name": "budget-1 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.726340+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "budget",
+          "record": {
+            "name": "Contact 1",
+            "email": "contact1@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expected": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "taskDurationMs": 2.0915
+      }
+    },
+    {
+      "stepId": "step-125",
+      "stepIndex": 125,
+      "type": "system_event",
+      "name": "budget-1 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.726340+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-120",
+          "step-121",
+          "step-122",
+          "step-123"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "evaluator": true,
+        "milestoneId": "budget-1/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-126",
+      "stepIndex": 126,
+      "type": "system_event",
+      "name": "budget-1 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.726340+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-120",
+          "step-121",
+          "step-122",
+          "step-123"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "evaluator": true,
+        "milestoneId": "budget-1/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-127",
+      "stepIndex": 127,
+      "type": "system_event",
+      "name": "budget-1 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.726340+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-120",
+          "step-121",
+          "step-122",
+          "step-123"
+        ],
+        "actualOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 1",
+          "email": "contact1@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "budget-1",
+        "evaluator": true,
+        "milestoneId": "budget-1/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-128",
+      "stepIndex": 128,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.727348+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "spanId": "e60e26dce18096a7"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-129",
+      "stepIndex": 129,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.727348+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "spanId": "1223dd367a2089ea"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-130",
+      "stepIndex": 130,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.727348+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "spanId": "f61e13b8c0c80a7b"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-131",
+      "stepIndex": 131,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.727348+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 2\",\"email\":\"contact2@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "spanId": "70c4c93eba69ae03"
+      },
+      "input": "{\"name\": \"Contact 2\", \"email\": \"contact2@example.test\"}"
+    },
+    {
+      "stepId": "step-132",
+      "stepIndex": 132,
+      "type": "system_event",
+      "name": "budget-2 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.729484+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "budget",
+          "record": {
+            "name": "Contact 2",
+            "email": "contact2@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expected": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "taskDurationMs": 2.0286000000000004
+      }
+    },
+    {
+      "stepId": "step-133",
+      "stepIndex": 133,
+      "type": "system_event",
+      "name": "budget-2 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.729484+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-128",
+          "step-129",
+          "step-130",
+          "step-131"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "evaluator": true,
+        "milestoneId": "budget-2/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-134",
+      "stepIndex": 134,
+      "type": "system_event",
+      "name": "budget-2 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.729484+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-128",
+          "step-129",
+          "step-130",
+          "step-131"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "evaluator": true,
+        "milestoneId": "budget-2/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-135",
+      "stepIndex": 135,
+      "type": "system_event",
+      "name": "budget-2 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.729484+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-128",
+          "step-129",
+          "step-130",
+          "step-131"
+        ],
+        "actualOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 2",
+          "email": "contact2@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "budget-2",
+        "evaluator": true,
+        "milestoneId": "budget-2/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-136",
+      "stepIndex": 136,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.731340+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "spanId": "c87924f5bcff0cdd"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-137",
+      "stepIndex": 137,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.731340+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "spanId": "56add01539fe8e20"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-138",
+      "stepIndex": 138,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.731340+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "spanId": "cefae74ae05d2157"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-139",
+      "stepIndex": 139,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.731340+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 3\",\"email\":\"contact3@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "spanId": "73eba0f1a90334d4"
+      },
+      "input": "{\"name\": \"Contact 3\", \"email\": \"contact3@example.test\"}"
+    },
+    {
+      "stepId": "step-140",
+      "stepIndex": 140,
+      "type": "system_event",
+      "name": "budget-3 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.733860+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "budget",
+          "record": {
+            "name": "Contact 3",
+            "email": "contact3@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expected": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "taskDurationMs": 1.8565999999999998
+      }
+    },
+    {
+      "stepId": "step-141",
+      "stepIndex": 141,
+      "type": "system_event",
+      "name": "budget-3 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.733860+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-136",
+          "step-137",
+          "step-138",
+          "step-139"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "evaluator": true,
+        "milestoneId": "budget-3/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-142",
+      "stepIndex": 142,
+      "type": "system_event",
+      "name": "budget-3 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.733860+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-136",
+          "step-137",
+          "step-138",
+          "step-139"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "evaluator": true,
+        "milestoneId": "budget-3/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-143",
+      "stepIndex": 143,
+      "type": "system_event",
+      "name": "budget-3 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.733860+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-136",
+          "step-137",
+          "step-138",
+          "step-139"
+        ],
+        "actualOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 3",
+          "email": "contact3@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "budget-3",
+        "evaluator": true,
+        "milestoneId": "budget-3/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-144",
+      "stepIndex": 144,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.733860+00:00",
+      "durationMs": 0.9776,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "spanId": "713c9153bedf0d24"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-145",
+      "stepIndex": 145,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.734838+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "spanId": "d9fab13a38bfb709"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-146",
+      "stepIndex": 146,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.734838+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "spanId": "2d24834d97cdae15"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-147",
+      "stepIndex": 147,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.734838+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 4\",\"email\":\"contact4@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "spanId": "7f0bfc6b4147e960"
+      },
+      "input": "{\"name\": \"Contact 4\", \"email\": \"contact4@example.test\"}"
+    },
+    {
+      "stepId": "step-148",
+      "stepIndex": 148,
+      "type": "system_event",
+      "name": "budget-4 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.735812+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "budget",
+          "record": {
+            "name": "Contact 4",
+            "email": "contact4@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expected": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "taskDurationMs": 1.9522000000000002
+      }
+    },
+    {
+      "stepId": "step-149",
+      "stepIndex": 149,
+      "type": "system_event",
+      "name": "budget-4 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.735812+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-144",
+          "step-145",
+          "step-146",
+          "step-147"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "evaluator": true,
+        "milestoneId": "budget-4/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-150",
+      "stepIndex": 150,
+      "type": "system_event",
+      "name": "budget-4 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.735812+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-144",
+          "step-145",
+          "step-146",
+          "step-147"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "evaluator": true,
+        "milestoneId": "budget-4/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-151",
+      "stepIndex": 151,
+      "type": "system_event",
+      "name": "budget-4 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.735812+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-144",
+          "step-145",
+          "step-146",
+          "step-147"
+        ],
+        "actualOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 4",
+          "email": "contact4@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "budget-4",
+        "evaluator": true,
+        "milestoneId": "budget-4/TrajectoryMatch"
+      }
+    },
+    {
+      "stepId": "step-152",
+      "stepIndex": 152,
+      "type": "tool_call",
+      "name": "extract_data",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.737317+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "extract_data",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool extract_data",
+        "logfire.msg": "execute_tool extract_data",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "spanId": "0f8135b56c75189f"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-153",
+      "stepIndex": 153,
+      "type": "tool_call",
+      "name": "analyze_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.738352+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "analyze_form",
+        "gen_ai.tool.call.arguments": "{\"form\": \"contact\"}",
+        "logfire.msg_template": "execute_tool analyze_form",
+        "logfire.msg": "execute_tool analyze_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "[\"name\",\"email\"]",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"array\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "spanId": "e38744820dd01779"
+      },
+      "input": "{\"form\": \"contact\"}"
+    },
+    {
+      "stepId": "step-154",
+      "stepIndex": 154,
+      "type": "tool_call",
+      "name": "validate_mapping",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.738352+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "validate_mapping",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool validate_mapping",
+        "logfire.msg": "execute_tool validate_mapping",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "spanId": "f54edcb4e4886bd0"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-155",
+      "stepIndex": 155,
+      "type": "tool_call",
+      "name": "fill_form",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.738352+00:00",
+      "durationMs": 0.0,
+      "output": {
+        "code.filepath": "scripts\\pydantic_evals_demo.py",
+        "code.function": "tool",
+        "code.lineno": 23,
+        "gen_ai.tool.name": "fill_form",
+        "gen_ai.tool.call.arguments": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}",
+        "logfire.msg_template": "execute_tool fill_form",
+        "logfire.msg": "execute_tool fill_form",
+        "logfire.span_type": "span",
+        "tracelens.tool.result": "{\"name\":\"Contact 5\",\"email\":\"contact5@example.test\"}",
+        "logfire.json_schema": "{\"type\":\"object\",\"properties\":{\"gen_ai.tool.name\":{},\"gen_ai.tool.call.arguments\":{},\"tracelens.tool.result\":{\"type\":\"object\"}}}"
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "spanId": "f62b133551be1f37"
+      },
+      "input": "{\"name\": \"Contact 5\", \"email\": \"contact5@example.test\"}"
+    },
+    {
+      "stepId": "step-156",
+      "stepIndex": 156,
+      "type": "system_event",
+      "name": "budget-5 / task output",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.739623+00:00",
+      "durationMs": 0,
+      "output": {
+        "inputs": {
+          "scenario": "budget",
+          "record": {
+            "name": "Contact 5",
+            "email": "contact5@example.test"
+          }
+        },
+        "actual": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expected": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "taskDurationMs": 1.0349000000000002
+      }
+    },
+    {
+      "stepId": "step-157",
+      "stepIndex": 157,
+      "type": "system_event",
+      "name": "budget-5 / EqualsExpected",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.739623+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "EqualsExpected: observed True",
+        "kind": "assertion",
+        "source": "EqualsExpected",
+        "evidenceStepIds": [
+          "step-152",
+          "step-153",
+          "step-154",
+          "step-155"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "evaluator": true,
+        "milestoneId": "budget-5/EqualsExpected"
+      }
+    },
+    {
+      "stepId": "step-158",
+      "stepIndex": 158,
+      "type": "system_event",
+      "name": "budget-5 / MaxToolCalls",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.739623+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": true,
+        "reason": "4 tool call(s), budget=4",
+        "kind": "assertion",
+        "source": "MaxToolCalls",
+        "evidenceStepIds": [
+          "step-152",
+          "step-153",
+          "step-154",
+          "step-155"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        }
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "evaluator": true,
+        "milestoneId": "budget-5/MaxToolCalls"
+      }
+    },
+    {
+      "stepId": "step-159",
+      "stepIndex": 159,
+      "type": "system_event",
+      "name": "budget-5 / TrajectoryMatch",
+      "status": "success",
+      "startedAt": "2026-10-30T02:11:54.739623+00:00",
+      "durationMs": 0,
+      "output": {
+        "value": 1.0,
+        "reason": "actual trajectory matches expected: ['extract_data', 'analyze_form', 'validate_mapping', 'fill_form']",
+        "kind": "score",
+        "source": "TrajectoryMatch",
+        "evidenceStepIds": [
+          "step-152",
+          "step-153",
+          "step-154",
+          "step-155"
+        ],
+        "actualOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "expectedOutput": {
+          "name": "Contact 5",
+          "email": "contact5@example.test"
+        },
+        "minimumScore": 1.0
+      },
+      "metadata": {
+        "caseId": "budget-5",
+        "evaluator": true,
+        "milestoneId": "budget-5/TrajectoryMatch"
+      }
+    }
+  ]
+}

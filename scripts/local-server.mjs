@@ -2,6 +2,7 @@ import { createServer } from 'node:http';
 import { createReadStream } from 'node:fs';
 import { stat, readFile, readdir, realpath } from 'node:fs/promises';
 import { resolve, join, extname, sep } from 'node:path';
+import { listEvaluations, readEvaluationTrace } from './local-evaluations.mjs';
 
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.json': 'application/json', '.jsonl': 'text/plain; charset=utf-8', '.woff2': 'font/woff2' };
 const validId = id => /^[a-zA-Z0-9][a-zA-Z0-9_-]{0,119}$/.test(id);
@@ -30,6 +31,12 @@ export async function startLocalServer({ dataDir, distDir, port = 5188 }) {
     catch { return send(400, { error: 'Invalid path' }); }
     if (path.startsWith('/api/') && req.headers['sec-fetch-site'] === 'cross-site') return send(403, { error: 'Local access only' });
     try {
+      if (path === '/api/evals') return send(200, { service: 'tracelens-local-v1', ...await listEvaluations(dataDir) });
+      if (path.startsWith('/api/evals/')) {
+        const [, , , id, kind, ...extra] = path.split('/');
+        if (extra.length) return send(400, { error: 'Invalid evaluation path' });
+        return send(200, await readEvaluationTrace(dataDir, id, kind));
+      }
       if (path === '/api/runs') {
         let entries = [];
         try { entries = await readdir(captures, { withFileTypes: true }); }
@@ -74,7 +81,7 @@ export async function startLocalServer({ dataDir, distDir, port = 5188 }) {
       if (req.method === 'HEAD') return res.end();
       createReadStream(actual).on('error', () => res.destroy()).pipe(res);
     } catch (e) {
-      send(['ENOENT', 'ENOTDIR'].includes(e.code) ? 404 : 500, { error: ['ENOENT', 'ENOTDIR'].includes(e.code) ? 'Not found' : 'Unable to read local files. Check directory permissions.' });
+      send(e.statusCode || (['ENOENT', 'ENOTDIR'].includes(e.code) ? 404 : 500), { error: e.statusCode ? e.message : ['ENOENT', 'ENOTDIR'].includes(e.code) ? 'Not found' : 'Unable to read local files. Check directory permissions.' });
     }
   });
   await new Promise((resolve, reject) => {

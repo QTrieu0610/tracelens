@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react';
 import { TraceLensV1Trace, TraceLensStep, RunComparisonResult } from '../types/trace';
-import { loadStoredRuns, saveRun, deleteRun, resetToDemoRuns, downloadJsonFile } from '../lib/storage';
+import { loadStoredRuns, saveRun, saveRuns, deleteRun, resetToDemoRuns, downloadJsonFile } from '../lib/storage';
 import { computeRunComparison } from '../lib/analytics';
 
 export type StudioTab = 'dashboard' | 'explorer' | 'workflow' | 'comparison' | 'analytics';
@@ -27,6 +27,9 @@ interface TraceStoreContextType {
   setStatusFilter: (filter: StatusFilter) => void;
   setImportModalOpen: (open: boolean) => void;
   importTrace: (trace: TraceLensV1Trace) => void;
+  importComparison: (baseline: TraceLensV1Trace, candidate: TraceLensV1Trace) => void;
+  openComparisonEvidence: (runId: string, stepId: string) => void;
+  restoreComparison: (() => void) | null;
   deleteRunById: (runId: string) => void;
   resetDemoDatasets: () => void;
   exportActiveRun: () => void;
@@ -45,6 +48,7 @@ export function TraceStoreProvider({ children }: { children: ReactNode }) {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
   const [isImportModalOpen, setImportModalOpen] = useState(false);
   const [storageError, setStorageError] = useState('');
+  const [comparisonOrigin, setComparisonOrigin] = useState<{ baselineId: string; candidateId: string } | null>(null);
 
   // Load initial runs
   useEffect(() => {
@@ -109,6 +113,23 @@ export function TraceStoreProvider({ children }: { children: ReactNode }) {
     setActiveTab('explorer');
     setImportModalOpen(false);
   };
+
+  const importComparison = (baseline: TraceLensV1Trace, candidate: TraceLensV1Trace) => {
+    const updated = saveRuns([baseline, candidate]);
+    setStorageError(''); setRuns(updated); setActiveRunId(baseline.runId);
+    setActiveStepId(baseline.steps[0]?.stepId ?? null);
+    setComparisonRunId(candidate.runId); setActiveTab('comparison'); setImportModalOpen(false);
+  };
+
+  const openComparisonEvidence = (runId: string, stepId: string) => {
+    if (!activeRun || !comparisonRun) return;
+    setComparisonOrigin({ baselineId: activeRun.runId, candidateId: comparisonRun.runId });
+    selectRun(runId); selectStep(stepId); setActiveTab('explorer');
+  };
+  const restoreComparison = comparisonOrigin && runs.some(r => r.runId === comparisonOrigin.baselineId) && runs.some(r => r.runId === comparisonOrigin.candidateId) ? () => {
+    selectRun(comparisonOrigin.baselineId); setComparisonRunId(comparisonOrigin.candidateId);
+    setActiveTab('comparison'); setComparisonOrigin(null);
+  } : null;
 
   const deleteRunById = (runId: string) => {
     try {
@@ -187,6 +208,9 @@ export function TraceStoreProvider({ children }: { children: ReactNode }) {
         setStatusFilter,
         setImportModalOpen,
         importTrace,
+        importComparison,
+        openComparisonEvidence,
+        restoreComparison,
         deleteRunById,
         resetDemoDatasets,
         exportActiveRun,

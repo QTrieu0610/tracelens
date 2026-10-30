@@ -35,7 +35,7 @@ export function buildComparisonReport(comparison: RunComparisonResult, options: 
     `- Step count delta (B - A): ${comparison.stepCountDelta}`,
     '', '## Limitations',
     ...(comparison.alignment === 'sequence' ? ['- Sequence alignment is positional; differences do not establish a semantic regression.'] : []),
-    ...(comparison.alignment === 'incompatible' ? ['- Benchmark metadata is incompatible. No steps are aligned.'] : []),
+    ...(comparison.alignment === 'incompatible' ? ['- Evaluation or benchmark metadata is incompatible. No steps are aligned.'] : []),
     ...(comparison.alignment === 'milestone' ? ['- Milestone alignment uses the latest evaluator observation for each stable milestone ID.'] : []),
     '- CLI completion does not establish task acceptance. Evaluator observations are not independently verified.',
     '- Unknown duration means timing evidence is missing. Partial or unknown token telemetry cannot establish total usage.',

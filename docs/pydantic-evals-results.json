@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-10-30T02:11:54.635312+00:00",
+  "synthetic": true,
+  "pydanticEvals": "2.63.0",
+  "logfire": "5.4.0",
+  "datasetRevision": "2f03812fca63eae5559ee6bf10f8c2fb5ac4f946c3df4e5bf16fc7f1f62c0b90",
+  "caseCount": 20,
+  "runs": {
+    "baseline": {
+      "executionStatus": "success",
+      "checksPassed": 60,
+      "checksTotal": 60,
+      "casesPassed": 20,
+      "toolCalls": 80,
+      "durationMs": 77.8438,
+      "criteria": {
+        "EqualsExpected": 20,
+        "TrajectoryMatch": 20,
+        "MaxToolCalls": 20
+      }
+    },
+    "regressed": {
+      "executionStatus": "success",
+      "checksPassed": 40,
+      "checksTotal": 60,
+      "casesPassed": 5,
+      "toolCalls": 100,
+      "durationMs": 75.7739,
+      "criteria": {
+        "EqualsExpected": 15,
+        "TrajectoryMatch": 10,
+        "MaxToolCalls": 15
+      }
+    }
+  },
+  "regressions": {
+    "output": 5,
+    "behavioralChecks": 15,
+    "behavioralCases": 10
+  }
+}

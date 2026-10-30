@@ -120,3 +120,33 @@ test('missing build has actionable error; incomplete and corrupt captures do not
     assert.equal(list.unreadable, 1);
   } finally { await local.close(); }
 });
+
+test('discovers completed evaluation pairs and restricts result reads to fixed local files', async () => {
+  const dataDir = folder(), distDir = folder();
+  writeFileSync(join(distDir, 'index.html'), '<title>TraceLens</title>');
+  for (const id of ['complete', 'partial', 'corrupt', 'invalid-shape', 'duplicate']) {
+    const dir = join(dataDir, 'evals', id);
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'manifest.json'), JSON.stringify({ id, createdAt: '2026-10-30T00:00:00Z', name: 'Synthetic evaluation', synthetic: true }));
+    const trace = { schemaVersion: 'tracelens-v1', runId: 'baseline', name: 'Synthetic evaluation', agentName: 'synthetic', model: 'test', status: 'success', startedAt: '2026-10-30T00:00:00Z', totalDurationMs: 1, metadata: { evaluation: { datasetId: 'forms', datasetRevision: 'v1' } }, steps: [] };
+    if (id === 'invalid-shape') delete trace.runId;
+    writeFileSync(join(dir, 'baseline.json'), JSON.stringify(trace));
+    if (id !== 'partial') writeFileSync(join(dir, 'regressed.json'), id === 'corrupt' ? '{bad' : JSON.stringify({ ...trace, runId: id === 'duplicate' ? 'baseline' : 'candidate' }));
+  }
+  const local = await startLocalServer({ dataDir, distDir, port: 0 });
+  try {
+    const response = await fetch(local.url + 'api/evals');
+    assert.equal(response.status, 200);
+    const list = await response.json();
+    assert.equal(list.service, 'tracelens-local-v1');
+    assert.deepEqual(list.evaluations.map(e => e.id), ['complete']);
+    assert.equal(list.unreadable, 4);
+    assert.equal((await fetch(local.url + 'api/evals/complete/baseline')).status, 200);
+    assert.equal((await fetch(local.url + 'api/evals/complete/manifest')).status, 400);
+    assert.equal((await fetch(local.url + 'api/evals/%2e%2e%2fsecret/baseline')).status, 400);
+    assert.equal((await fetch(local.url + 'api/evals', { headers: { Origin: 'https://foreign.example' } })).status, 403);
+    assert.equal((await fetch(local.url + 'api/evals', { method: 'POST' })).status, 405);
+    writeFileSync(join(dataDir, 'evals', 'complete', 'baseline.json'), Buffer.alloc(10 * 1024 * 1024 + 1));
+    assert.equal((await fetch(local.url + 'api/evals/complete/baseline')).status, 413);
+  } finally { await local.close(); }
+});

@@ -21,6 +21,39 @@ The agent runs in your current working directory with your existing settings/aut
 
 Go to Dashboard → **Local agent captures** → **Open trace**. The list refreshes every five seconds. An empty or oversized log cannot be opened; **View stderr** helps diagnose missing agents or authentication failures. A capture still marked in progress may have been interrupted: TraceLens never assumes it succeeded. Existing file/paste imports continue to work.
 
+## Run the evaluation demo
+
+Keep the viewer terminal running. In a second terminal:
+
+```sh
+npm run evals
+```
+
+Requires Python 3.11+. The command finds Python, creates a separate environment under `~/.tracelens/python-evals`, installs dependencies on first use and runs 20 synthetic form-fill cases. It reuses the environment on later runs. No LLM/API key is used. The first dependency installation requires internet.
+
+In Dashboard, **Local evaluations** refreshes every five seconds. Choose **Open comparison** beside the new result. Inspect the baseline/candidate acceptance totals, newly failed checks and missing results. **View candidate evidence** opens the exact check; **Back to comparison** restores your original pair.
+
+With the installed app, run `tracelens eval demo` instead. For a custom data directory, use the same option on both commands:
+
+```sh
+tracelens --data-dir /private/path/traces
+tracelens --data-dir /private/path/traces eval demo
+```
+
+From source, the equivalent evaluation command is `node scripts/tracelens.mjs --data-dir /private/path/traces eval demo`. Completed results are saved under `DATA_DIR/evals/<unique-id>/`. Raw reports and partial outputs stay on disk; unfinished or incompatible pairs are not offered as completed comparisons. The browser never starts Python or an agent.
+
+## Troubleshooting
+
+| Symptom | Next step |
+| --- | --- |
+| `npm` is not found | Install Node.js 22+, reopen the terminal, then run `npm ci` and `npm start`. |
+| Browser did not open | Copy the `http://127.0.0.1:…` address printed in the terminal into your browser. |
+| Port is busy | Open the existing viewer or start with `npm start -- --port 5189`. |
+| Python is missing or too old | Install Python 3.11+, reopen the terminal, then retry `npm run evals`. Viewing logs/samples still works. |
+| Dependency installation fails | Check the pip output and internet connection; retry the same evaluation command. |
+| Results do not appear | Keep the viewer running, click **Refresh evaluations**, and check that viewer/eval use the same data directory. `npm run dev` and static hosting do not provide local discovery. |
+| An evaluation cannot be opened | Refresh and retry. Partial/corrupt results remain on disk; you can inspect or import the original files manually. |
+
 ## Install for use in any project
 
 The maintainer can create a portable npm package:

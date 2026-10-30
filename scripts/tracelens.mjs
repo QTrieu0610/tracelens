@@ -6,17 +6,19 @@ import { fileURLToPath } from 'node:url';
 import { realpathSync } from 'node:fs';
 import { captureAgent } from './agent-capture.mjs';
 import { startLocalServer } from './local-server.mjs';
+import { runEvalDemo } from './eval-demo.mjs';
 
 const help = `TraceLens — local agent log capture and viewer (Node.js 22+)
 
   tracelens                                  Open the local viewer
+  tracelens eval demo                         Run 20 synthetic evaluation cases
   tracelens run codex -- "Review this project"
   tracelens run codex -- --sandbox read-only "Explain this code"
   tracelens run claude -- "Review this project"
   tracelens run gemini -- "Review this project"
   tracelens run agy -- "Review this project"
 
-Options before 'run': --data-dir PATH, --port NUMBER, --no-open
+Options before a command: --data-dir PATH, --port NUMBER, --no-open
 Default data: ~/.tracelens (private raw stdout, stderr and capture manifests)
 Agents use their existing authentication, settings and account allowance.
 The wrapper preserves agent permissions; CLI completion does not verify task correctness.
@@ -38,7 +40,14 @@ export async function main(argv = process.argv.slice(2)) {
     }
   }
   if (args.length) {
-    if (args.shift() !== 'run') throw new Error('Unknown command. Run tracelens --help.');
+    const command = args.shift();
+    if (command === 'eval') {
+      if (args.length !== 1 || args[0] !== 'demo') throw new Error('Usage: tracelens eval demo');
+      await runEvalDemo({ dataDir });
+      console.log(`Saved under ${dataDir}. Open the viewer with tracelens${dataDir === join(homedir(), '.tracelens') ? '' : ` --data-dir "${dataDir}"`}.`);
+      return;
+    }
+    if (command !== 'run') throw new Error('Unknown command. Run tracelens --help.');
     const provider = args.shift();
     if (args.shift() !== '--' || !args.length) throw new Error('Usage: tracelens run codex|claude|gemini|agy -- AGENT_ARGUMENTS');
     const run = await captureAgent({ provider, args, dataDir });

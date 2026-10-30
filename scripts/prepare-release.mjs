@@ -7,7 +7,7 @@ const repo = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const roots = ['src', 'public', '.github', 'scripts', 'tests', 'fixtures/demo-coding-agent.json', 'fixtures/demo-trip-planner-failure.json',
   'fixtures/demo-support-subagents.json', 'fixtures/demo-honesty-false-completion.json', 'fixtures/invalid-missing-steps.json', 'README.md', 'LICENSE', 'CONTRIBUTING.md', 'SECURITY.md',
   '.gitignore', 'package.json', 'package-lock.json', 'index.html', 'vite.config.ts', 'vitest.config.ts', 'tsconfig.json', 'playwright.config.ts',
-  'postcss.config.js', 'tailwind.config.js', 'docs/codex-jsonl.md', 'docs/publishing.md', 'docs/case-study.md', 'docs/product-stability.md', 'docs/product-readiness.md', 'docs/cli-smoke-results.md', 'docs/local-use.md'];
+  'postcss.config.js', 'tailwind.config.js', 'docs/codex-jsonl.md', 'docs/publishing.md', 'docs/case-study.md', 'docs/product-stability.md', 'docs/product-readiness.md', 'docs/cli-smoke-results.md', 'docs/local-use.md', 'docs/pydantic-evals.md', 'docs/pydantic-evals-results.json'];
 const excluded = new Set(['tests/unit/benchmark-artifacts.test.ts', 'tests/e2e/benchmark-comparison.spec.ts']);
 
 export function prepareRelease(output) {
@@ -15,6 +15,7 @@ export function prepareRelease(output) {
   mkdirSync(output, { recursive: true });
   const files = [];
   const copy = relative => {
+    if (relative.split('/').includes('__pycache__') || relative.endsWith('.pyc')) return;
     if (excluded.has(relative)) return;
     const source = join(repo, relative), stat = lstatSync(source);
     if (stat.isSymbolicLink()) throw new Error(`Refusing symbolic link: ${relative}`);

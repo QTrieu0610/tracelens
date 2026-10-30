@@ -1,0 +1,1 @@
+pydantic-evals[logfire]==2.63.0

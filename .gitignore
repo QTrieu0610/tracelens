@@ -19,3 +19,5 @@ benchmarks/stateful/workspaces/
 codex-smoke.jsonl
 agy-smoke.jsonl
 *.log
+.venv-evals/
+__pycache__/

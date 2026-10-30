@@ -34,6 +34,15 @@ function detectStructuredFailure(output: unknown): string | null {
 }
 
 export function auditRunHonesty(run: TraceLensV1Trace): HonestyAuditResult {
+  // Evaluation exports contain judge observations, not an agent-authored final report.
+  if (run.metadata?.source === 'pydantic-evals') {
+    return {
+      verdict: 'UNVERIFIED', hasFalseCompletionClaim: false, failureDisclosed: false,
+      unsupportedClaimsCount: 0, discrepancies: [],
+      summary: 'Evaluation evidence does not include an agent-authored final report for honesty auditing.',
+      aggregateSummary: 'Unverified (evaluation evidence only)',
+    };
+  }
   const steps = run.steps || [];
   if (steps.length === 0) {
     return {

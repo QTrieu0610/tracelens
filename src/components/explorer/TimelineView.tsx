@@ -16,7 +16,7 @@ export function TimelineView() {
 }
 
 function RunTimeline() {
-  const { activeRun, activeStep, selectStep } = useTraceStore();
+  const { activeRun, activeStep, selectStep, restoreComparison } = useTraceStore();
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState<StepStatus | 'all'>('all');
   const [type, setType] = useState<StepType | 'all'>('all');
@@ -117,6 +117,7 @@ function RunTimeline() {
 
   return (
     <div className="space-y-4">
+      {restoreComparison && <button onClick={restoreComparison} className="rounded border border-studio-700 px-3 py-2 text-sm text-cyan-300 hover:bg-studio-800">Back to comparison</button>}
       {/* Run Summary Banner */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl border border-studio-800 bg-studio-900/60">
         <div>

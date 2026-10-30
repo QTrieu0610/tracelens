@@ -14,6 +14,7 @@ export function ComparisonView() {
     comparisonRun,
     comparisonResult,
     selectRun,
+    openComparisonEvidence,
     setComparisonRunId
   } = useTraceStore();
 
@@ -90,9 +91,20 @@ export function ComparisonView() {
         </div>
       </div>
 
+      {comparisonResult?.evaluationSummary && <section aria-label="Evaluation results" className="rounded-xl border border-cyan-800/50 bg-cyan-950/10 p-4 space-y-2 text-sm text-studio-200">
+        <h2 className="font-semibold">Evaluation results</h2>
+        <div className="flex flex-wrap gap-4">
+          <p>Baseline: {comparisonResult.evaluationSummary.baselinePassed}/{comparisonResult.evaluationSummary.baselineTotal} checks passed</p>
+          <p>Candidate: {comparisonResult.evaluationSummary.candidatePassed}/{comparisonResult.evaluationSummary.candidateTotal} checks passed</p>
+        </div>
+        <p className="text-rose-300">{comparisonResult.evaluationSummary.regressions} newly failed checks</p>
+        <p className="text-xs text-studio-300">{comparisonResult.evaluationSummary.improvements} improved · {comparisonResult.evaluationSummary.missing} missing candidate checks · {comparisonResult.evaluationSummary.added} added checks</p>
+        <p className="text-xs text-studio-400">Missing checks are unverified. Execution can finish successfully while evaluation checks fail. Choose View candidate evidence in the table below to inspect a result.</p>
+      </section>}
+
       {comparisonResult && (
         <div className="text-xs text-studio-300 space-y-2">
-          {[activeRun, comparisonRun].some(run => run && isSyntheticDemo(run)) && <p className="text-amber-300">Synthetic demo: the before sample deliberately includes a failed npm test command for comparison.</p>}
+          {[activeRun, comparisonRun].some(run => run && isSyntheticDemo(run)) && <p className="text-amber-300">Synthetic demo: controlled examples demonstrate successes and failures; these results do not measure live agent quality.</p>}
           <p>Alignment: {comparisonResult.alignment}{comparisonResult.alignment === 'sequence' ? ' (sequence position)' : comparisonResult.alignment === 'milestone' ? ' (latest evaluator observation per stable milestone ID)' : ''}</p>
           {comparisonResult.alignment === 'sequence' && <p>Sequence alignment is positional; differences do not establish a semantic regression.</p>}
           {[activeRun, comparisonRun].map((run, index) => run && <p key={`acceptance-${index}`}>Run {index === 0 ? 'A' : 'B'} acceptance: {getAcceptance(run)}</p>)}
@@ -198,6 +210,7 @@ export function ComparisonView() {
                   <th className="py-2.5 px-4">Duration B</th>
                   <th className="py-2.5 px-4">Variance (B - A)</th>
                   <th className="py-2.5 px-4">Structural Notes</th>
+                  {comparisonResult.alignment === 'milestone' && <th className="py-2.5 px-4">Evidence</th>}
                 </tr>
               </thead>
               <tbody className="divide-y divide-studio-850">
@@ -217,10 +230,10 @@ export function ComparisonView() {
                         {diff.name}
                       </td>
                       <td className="py-3 px-4 whitespace-nowrap">
-                        {diff.statusA ? <StatusBadge status={diff.statusA} size="sm" /> : <span className="text-studio-600">—</span>}
+                        {diff.statusA ? <StatusBadge status={diff.statusA} size="sm" /> : <span className="text-amber-300">Missing</span>}
                       </td>
                       <td className="py-3 px-4 whitespace-nowrap">
-                        {diff.statusB ? <StatusBadge status={diff.statusB} size="sm" /> : <span className="text-studio-600">—</span>}
+                        {diff.statusB ? <StatusBadge status={diff.statusB} size="sm" /> : <span className="text-amber-300">Missing</span>}
                       </td>
                       <td className="py-3 px-4 font-mono text-studio-300">
                         {diff.durationA !== undefined ? formatDuration(diff.durationA) : '—'}
@@ -246,6 +259,9 @@ export function ComparisonView() {
                           <span className="text-emerald-500/80">Matched</span>
                         )}
                       </td>
+                      {comparisonResult.alignment === 'milestone' && <td className="py-3 px-4 space-y-2">
+                        {[{ run: activeRun, stepId: diff.stepIdA, label: 'baseline' }, { run: comparisonRun, stepId: diff.stepIdB, label: 'candidate' }].map(({ run, stepId, label }) => run && stepId && <button key={label} onClick={() => openComparisonEvidence(run.runId, stepId)} className="block rounded border border-studio-700 px-3 py-2 text-cyan-300 hover:bg-studio-800 whitespace-nowrap">View {label} evidence</button>)}
+                      </td>}
                     </tr>
                   );
                 })}

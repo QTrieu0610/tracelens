@@ -47,8 +47,11 @@ export function LocalCaptures() {
   return <section aria-label="Local agent captures" className="rounded-xl border border-studio-700 bg-studio-900 p-4 space-y-3">
     <h2 className="text-sm font-semibold text-studio-100">Local agent captures</h2>
     <p className="text-xs text-studio-300">Run an agent in your project terminal. Captures appear here automatically; choose Open trace to inspect one.</p>
-    <pre className="overflow-x-auto rounded bg-studio-950 p-3 text-xs text-cyan-300"><code>tracelens run codex -- "your task"</code></pre>
-    <p className="text-xs text-studio-400">Uses your installed agent and account. Raw logs stay on this computer and may contain secrets. Process completion does not verify task correctness.</p>
+    <details className="text-xs text-studio-400"><summary className="cursor-pointer">How to capture an agent run</summary>
+      <p className="mt-2">From this source checkout:</p><pre className="overflow-x-auto rounded bg-studio-950 p-3 text-xs text-cyan-300"><code>npm run capture -- codex -- --sandbox read-only "Review this project"</code></pre>
+      <p>With the installed app: <code>tracelens run codex -- --sandbox read-only "Review this project"</code></p>
+      <p>Uses your installed agent and account. Raw logs stay on this computer and may contain secrets. Process completion does not verify task correctness.</p>
+    </details>
     {!runs.length && <p className="text-xs text-studio-300">No captures yet. You can also import an existing log below.</p>}
     {runs.length > 20 && <p className="text-xs text-studio-400">Showing the 20 newest captures. All files remain saved on disk.</p>}
     {runs.slice(0, 20).map(run => <div key={run.id} className="flex flex-wrap items-center justify-between gap-3 border-t border-studio-800 pt-3 text-xs">
