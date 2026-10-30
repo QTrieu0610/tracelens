@@ -6,10 +6,12 @@ Run `npm run prepare:github`. It creates a new `.release/tracelens-<timestamp>/`
 
 Inspect `release-manifest.json` and the files in that folder. This allowlist is protection against accidental artifact inclusion, not a guarantee that future source edits contain no secrets. Keep only synthetic screenshots and examples. Do not upload the whole original working folder: it contains real logs and research workspaces outside the curated tree.
 
-From the curated folder, install dependencies with `npm ci`, run checks, and create/push a Git repository using your chosen account and repository. The working folder supplied to this session had no Git repository; no remote repository has been created or pushed.
+From the curated folder, install dependencies with `npm ci` and run checks before pushing. The public repository is [QTrieu0610/tracelens](https://github.com/QTrieu0610/tracelens). The original research workspace remains separate from the curated Git checkout.
 
 The owner selected MIT. The license uses `TraceLens contributors`; update the copyright line if you prefer a specific owner identity.
 
-CI runs product tests, typecheck, build and browser checks on pushes/PRs. For a hosted demo, configure GitHub Pages to use GitHub Actions in repository settings, then manually run **Publish demo (manual)**. The workflow publishes only `dist/`. Vite uses relative asset paths for repository subdirectories. No deployment has been performed by this local setup; add the resulting real URL to the README after deployment succeeds.
+CI runs product tests, typecheck, build and browser checks on pushes/PRs. GitHub Pages is configured to use GitHub Actions. To update the hosted demo, manually run **Publish demo (manual)** on the desired branch. The workflow publishes only `dist/`; pushing source alone does not redeploy the website. Vite uses relative asset paths for repository subdirectories.
+
+Live demo: https://qtrieu0610.github.io/tracelens/. First deployed on 2026-10-30 from commit `ed500c7` using [deployment run 40996167728](https://github.com/QTrieu0610/tracelens/actions/runs/40996167728). Verified HTTP 200, loading the Pydantic Evals comparison, viewing failed-check evidence and returning to the comparison without JavaScript errors. The hosted viewer supports file imports and synthetic samples; running Python evaluations and discovering local files requires the local app.
 
 Before announcing the release, ask five developers to import their own logs without help. Observe whether they find a concrete issue, use a comparison to change their workflow and return with a new log. Stars alone do not validate usefulness.

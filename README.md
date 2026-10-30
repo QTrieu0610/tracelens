@@ -2,6 +2,8 @@
 
 **Inspect agent logs locally. Find failed commands and token usage, compare runs, and share a reviewed Markdown summary.**
 
+**[Open the live demo](https://qtrieu0610.github.io/tracelens/)** — explore synthetic examples or import your own logs in the browser. Running Python evaluations and discovering local captures still requires the local app.
+
 TraceLens is a browser-based viewer for Codex, Antigravity (AGY), Claude Code, Gemini CLI and TraceLens JSON. Developers can inspect failed tools; researchers can compare runs and source-provided evaluator milestones. No remote backend, account or API key is required to inspect existing logs. Imported trace content stays in the browser.
 
 ![TraceLens comparison with synthetic Codex examples](docs/screenshots/product-demo.png)
@@ -50,7 +52,7 @@ Run those commands in separate terminals. Claude Code, Gemini CLI and AGY wrappe
 
 Use **Import your logs** for an existing file. If you need a log, expand **Need a log? Show capture commands** in the import dialog, choose your CLI and shell, and copy the command. It captures a small model response and protects an existing output file from overwrite. The CLI must already be installed and authenticated; capturing a new run uses your account's allowance.
 
-The example files are synthetic and ship with the app. You do not need to run a model or spend tokens to try the viewer. A hosted demo has not been published yet; see [publishing instructions](docs/publishing.md).
+The example files are synthetic and ship with the app. You do not need to run a model or spend tokens to try the [hosted demo](https://qtrieu0610.github.io/tracelens/). See [publishing instructions](docs/publishing.md) for deployment details.
 
 ## Bring an existing Codex log
 

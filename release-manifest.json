@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T03:10:09.493Z",
+  "generatedAt": "2026-10-30T03:14:55.010Z",
   "policy": "Product source allowlist; excludes real benchmark logs, workspaces, local credentials and build artifacts",
   "files": [
     {
@@ -456,7 +456,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5f42236e36d9b1327d1c0e7b9d41799484362239625408a2477795aa8f76cc70"
+      "sha256": "d3da05ed003dfd3cea802c0f807ab2dbaea66981c22e26aa6c7598befc59d774"
     },
     {
       "path": "LICENSE",
@@ -516,7 +516,7 @@
     },
     {
       "path": "docs/publishing.md",
-      "sha256": "8b11b9fa733b5522434df1fad57754d77ef9f32d7f767e059b16758198ee3385"
+      "sha256": "b590334c8a82474cc280f51893d4c6dc2ee3dcb8f353321d7e62c167bd8461e4"
     },
     {
       "path": "docs/case-study.md",
